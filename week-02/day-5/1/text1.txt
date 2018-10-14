@@ -1,1 +1,1 @@
-this is the first file and now I'm chaning the content
+this is the first file and now I'm changing the content
