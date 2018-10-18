@@ -86,9 +86,16 @@ public class Variables {
         int currentHours = 14;
         int currentMinutes = 34;
         int currentSeconds = 42;
-        int secondsInAMinute = 60;
+        int pastSecondsSinceMidnight = (14 * 3600) + (34 * 60) + currentSeconds;
+        int secondsInAnHour = 24 * 60 * 60;
+        int remainingSecondsInADay = secondsInAnHour - pastSecondsSinceMidnight;
 
-        System.out.println(secondsInAMinute -= currentSeconds);
+        System.out.println(remainingSecondsInADay);
+
+
+        // There are 60 seconds in a minute, 60 minutes in an hour so in 1 hour there are 3600 seconds.
+        // In 24 hours that is 86400.
+        //
 
 
 
