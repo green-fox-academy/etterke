@@ -18,6 +18,15 @@ public class Variables {
         System.out.println(b);
 
 
+        // BMI
+
+        double massInKg = 81.2;
+        double heightInM = 1.78;
+        heightInM *= 1.78;
+
+        System.out.println(massInKg / heightInM);
+
+
         // DefineBasicInfo
 
         String myName = "Nagy Eszter";
@@ -79,6 +88,14 @@ public class Variables {
 
         String m ="Apple Apple Apple Apple";
         System.out.println(m);
+
+        // Cuboid
+
+        double lenght = ;
+        double width = ;
+        double height = ;
+
+        System.out.println("Surface area: " + );
 
 
         // SecondsInADay
