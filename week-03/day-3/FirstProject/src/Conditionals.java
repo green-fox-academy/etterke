@@ -64,17 +64,18 @@ public class Conditionals {
 
         int numberOfBoys = scanner.nextInt();
 
-        if (numberOfBoys == numberOfGirls && numberOfBoys + numberOfGirls > 20) {
+        if (numberOfGirls == 0) {
+            System.out.println("Sausage party");
+
+        }   else if ((numberOfBoys == numberOfGirls) && (numberOfBoys + numberOfGirls > 20)) {
             System.out.println("The party is excellent!");
 
-        }   else if (numberOfBoys > numberOfGirls || numberOfBoys < numberOfGirls && numberOfBoys + numberOfGirls >= 20) {
-            System.out.println("Quite cool party");
+        }   else if ((numberOfBoys != numberOfGirls) && (numberOfBoys + numberOfGirls) >= 20) {
+            System.out.println("Quite cool party!");
 
-        }   else if (numberOfBoys + numberOfGirls < 20) {
-            System.out.println("Average party");
+        }   else if ((numberOfBoys + numberOfGirls) < 20) {
+            System.out.println("Average party...");
 
-        }   else if (numberOfGirls == 0) {
-            System.out.println("Sausage party");
         }
 
 
