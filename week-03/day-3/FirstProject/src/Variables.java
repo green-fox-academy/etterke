@@ -89,13 +89,7 @@ public class Variables {
         String m ="Apple Apple Apple Apple";
         System.out.println(m);
 
-        // Cuboid
 
-        double lenght = ;
-        double width = ;
-        double height = ;
-
-        System.out.println("Surface area: " + );
 
 
         // SecondsInADay
