@@ -122,6 +122,20 @@ public class Conditionals {
 
         System.out.println(c);
 
-    }
+        int d = 8;
+        int time = 120;
+        String out3 = "";
 
+        if ((d % 4 == 0) && time > 200) {
+            out3 = "check";
+
+        } else if (time > 200) {
+            out3 = "time out";
+
+        } else {
+            out3 = "Run Forest, run!";
+        }
+
+        System.out.println(out3);
+    }
 }

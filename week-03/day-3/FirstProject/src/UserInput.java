@@ -18,7 +18,6 @@ public class UserInput {
         System.out.println("Write a distance in kilometers: ");
 
         double userInput2 = scanner.nextInt();
-
         userInput2 *= 0.621371192;
 
         System.out.println("Converted into miles: " + userInput2);
@@ -53,5 +52,4 @@ public class UserInput {
         System.out.println("Average: " + average);
 
     }
-
 }

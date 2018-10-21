@@ -10,5 +10,4 @@ public class TwoNumbers {
         System.out.println(22 % 13);
 
     }
-
 }

@@ -4,7 +4,7 @@ public class HelloOthers {
 
         System.out.println("Hello, Viola!");
         System.out.println("Hello, Emese!");
-        System.out.println("Hello, Erika");
+        System.out.println("Hello, Erika!");
 
     }
 }

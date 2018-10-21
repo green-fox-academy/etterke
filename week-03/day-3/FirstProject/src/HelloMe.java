@@ -2,7 +2,7 @@ public class HelloMe {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello Eszter");
+        System.out.println("Hello, Eszter!");
 
     }
 }
