@@ -52,17 +52,6 @@ public class UserInput {
         System.out.println("Sum: " + sum);
         System.out.println("Average: " + average);
 
-
-
-
-
-
-
-
-
-
-
-
     }
 
 }

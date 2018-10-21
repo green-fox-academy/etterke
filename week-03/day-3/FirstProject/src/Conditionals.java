@@ -67,7 +67,7 @@ public class Conditionals {
         if (numberOfGirls == 0) {
             System.out.println("Sausage party");
 
-        }   else if ((numberOfBoys == numberOfGirls) && (numberOfBoys + numberOfGirls > 20)) {
+        }   else if ((numberOfBoys == numberOfGirls) && (numberOfBoys + numberOfGirls >= 20)) {
             System.out.println("The party is excellent!");
 
         }   else if ((numberOfBoys != numberOfGirls) && (numberOfBoys + numberOfGirls) >= 20) {
@@ -90,7 +90,6 @@ public class Conditionals {
 
         System.out.println(out);
 
-
         int b = 13;
         String out2 = "";
 
@@ -106,8 +105,6 @@ public class Conditionals {
         }
 
         System.out.println(out2);
-
-
 
         int c = 123;
         int credits = 100;
@@ -126,10 +123,5 @@ public class Conditionals {
         System.out.println(c);
 
     }
-
-
-
-
-
 
 }

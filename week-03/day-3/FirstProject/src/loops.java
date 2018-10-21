@@ -1,3 +1,5 @@
+import java.util.Scanner
+
 public class loops {
 
     public static void main(String[] args) {
@@ -19,6 +21,19 @@ public class loops {
             System.out.println(a);
             a += 2;
         }
+
+
+        // MultiplicationTable
+
+        Scanner scanner = new Scanner (System.in);
+
+        System.out.println("Please write a number here: ");
+        int userInput1 = scanner.nextInt();
+
+
+
+
+
 
     }
 }
