@@ -3,14 +3,13 @@ public class AppendAFunc {
     public static void main(String[] args) {
 
         String typo = "Chinchill";
-        appendAFunc(typo);
+        System.out.println(appendAFunc(typo));
 
     }
 
-    public static void appendAFunc (String text) {
+    public static String appendAFunc (String text) {
 
-        System.out.println(text + "a");
+        return text + "a";
 
     }
-
 }
