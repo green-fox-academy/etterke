@@ -1,4 +1,4 @@
-public class Doubling {^
+public class Doubling {
 
     public static void main(String[] args) {
 
