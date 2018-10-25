@@ -57,17 +57,15 @@ public class Conditionals {
         // PartyIndicator
 
         System.out.println("Welcome to the party! Please put the number of girls here: ");
-
         int numberOfGirls = scanner.nextInt();
 
         System.out.println("Cool, now the number of boys: ");
-
         int numberOfBoys = scanner.nextInt();
 
         if (numberOfGirls == 0) {
             System.out.println("Sausage party");
 
-        }   else if ((numberOfBoys == numberOfGirls) && (numberOfBoys + numberOfGirls >= 20)) {
+        }   else if ((numberOfBoys == numberOfGirls) && (numberOfBoys + numberOfGirls) >= 20) {
             System.out.println("The party is excellent!");
 
         }   else if ((numberOfBoys != numberOfGirls) && (numberOfBoys + numberOfGirls) >= 20) {
