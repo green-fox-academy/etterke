@@ -14,6 +14,5 @@ public class DiagonalMatrix {
             }
             System.out.println();
         }
-
     }
 }
