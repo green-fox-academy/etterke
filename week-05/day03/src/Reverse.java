@@ -4,14 +4,11 @@ public class Reverse {
 
         String reversed = ".eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI";
 
-        reverse(reversed);
+        StringBuilder corrected = new StringBuilder(reversed);
+
+        System.out.println(corrected.reverse().toString());
 
     }
 
-    private static void reverse(String text) {
 
-        for(int i = text.length() - 1; i >= 0; i--) {
-            System.out.print(text.charAt(i));
-        }
-    }
 }
