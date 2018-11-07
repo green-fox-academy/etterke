@@ -2,15 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class CenterBoxFunction {
+public class RainbowBoxFunction {
 
     public static void mainDraw(Graphics graphics){
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 20; i++) {
             drawSquare(graphics);
         }
     }
 
-    public static int randomColor(){
+    public static int randomColor() {
         return ((int)(Math.random() * 256));
     }
 
@@ -18,14 +18,13 @@ public class CenterBoxFunction {
         return ((int)(Math.random() * 320));
     }
 
-
     public static void drawSquare(Graphics graphics){
         int size = randomSize();
         int x = (WIDTH / 2) - (size / 2);
         int y = (HEIGHT / 2) - (size / 2);
 
         graphics.setColor(new Color(randomColor(), randomColor(), randomColor(), randomColor()));
-        graphics.drawRect(x,y, size, size);
+        graphics.fillRect(x,y, size, size);
     }
 
     // Don't touch the code below
