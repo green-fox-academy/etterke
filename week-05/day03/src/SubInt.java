@@ -13,7 +13,7 @@ public class SubInt {
         String numArrayString = String.valueOf(num);
         for (int i = 0; i < numArray.length; i++) {
             if (String.valueOf(numArray[i]).contains(numArrayString)) {
-            result.add(i);
+                result.add(i);
             }
         }
         return result;
