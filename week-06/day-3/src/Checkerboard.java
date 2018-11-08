@@ -1,30 +1,35 @@
 import javax.swing.*;
 import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
 
-public class PurpleSteps {
+public class Checkerboard {
+
     public static void mainDraw(Graphics graphics) {
+        graphics.setColor(Color.BLACK);
+        graphics.fillRect(0,0, WIDTH, HEIGHT);
 
-        int squareSize = 10;
-        int x = 10;
-        int y = 10;
+        for (int j = 0; j < HEIGHT; j++) {
+            for (int i = 0; i < WIDTH; i++) {
+                if (j % 2 == 1) {
+                    if (i % 2 == 1) {
+                        graphics.setColor(Color.white);
+                        graphics.fillRect(i, j, 40, 40);
+                    }
 
-        for (int i = 1; i < 19; i++) {
-            drawPurpleSquares(graphics, x * i, y * i, squareSize);
-            drawBlackSquares(graphics,x * i, y * i, squareSize);
+                } else  {
+                    if (i % 2 == 0) {
+                        graphics.setColor(Color.white);
+                        graphics.fillRect(i, j, 40, 40);
+                    }
+                }
+                i += 40;
+            }
+            j += 40;
         }
     }
 
-    public static void drawPurpleSquares(Graphics g, int x, int y, int size) {
 
-        g.setColor(new Color (156, 47, 196));
-        g.fillRect(x, y, size, size);
-    }
-
-    public static void drawBlackSquares(Graphics g, int x, int y, int size) {
-        g.setColor(Color.BLACK);
-        g.drawRect(x, y, size, size);
-    }
 
     // Don't touch the code below
     static int WIDTH = 320;
