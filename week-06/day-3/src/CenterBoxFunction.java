@@ -10,9 +10,7 @@ public class CenterBoxFunction {
         }
     }
 
-    public static int randomColor(){
-        return ((int)(Math.random() * 256));
-    }
+    public static int randomColor() { return ((int)(Math.random() * 256)); }
 
     public static int randomSize(){
         return ((int)(Math.random() * 320));
