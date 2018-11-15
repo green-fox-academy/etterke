@@ -1,0 +1,6 @@
+This is my file.
+The aim is to print each line to standard output.
+The program I write will print an error message if it's unable to read the file.
+Uff.
+
+
