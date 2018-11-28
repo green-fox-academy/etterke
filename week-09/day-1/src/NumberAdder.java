@@ -1,10 +1,14 @@
 public class NumberAdder {
 
   public static void main(String[] args) {
-
+    System.out.println(addNumbers(10));
   }
 
-  public static void addNumbers(int n) {
-    if ()
+  public static int addNumbers(int n) {
+    if (n == 1) {
+      return 1;
+    } else {
+      return addNumbers(n - 1) + n;
+    }
   }
 }
