@@ -8,4 +8,12 @@ public class Bunnies {
 
     System.out.println(result);
   }
+
+  private static int calculateNumberOfEars(int bunnies, int ears) {
+    if (bunnies == 0) {
+      return 0;
+    } else {
+      return ears + calculateNumberOfEars((bunnies-1), ears);
+    }
+  }
 }
