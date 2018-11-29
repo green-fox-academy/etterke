@@ -16,5 +16,4 @@ public class Bunnies2 {
       return 2 + countNumberOfEars(bunnies - 1);
     }
   }
-
 }
