@@ -7,4 +7,8 @@ public class Tree extends Plant {
     setPlantType("Tree");
   }
 
+  @Override
+  public String toString() {
+    return "" + getColor() + " " + getWaterLevel() + "";
+  }
 }

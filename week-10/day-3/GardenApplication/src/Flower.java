@@ -6,4 +6,9 @@ public class Flower extends Plant {
     setAbsorption(0.75);
     setPlantType("Flower");
   }
+
+  @Override
+  public String toString() {
+    return "" + getColor() + " " + getWaterLevel() + "";
+  }
 }

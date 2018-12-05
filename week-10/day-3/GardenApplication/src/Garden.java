@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Garden {
 
   private ArrayList<Plant> plants;
+  private int numberOfWitheringPlants;
 
   public Garden() {
     plants = new ArrayList<>();
@@ -13,17 +14,19 @@ public class Garden {
   }
 
   public void checkPlantsWaterLevel() {
+    numberOfWitheringPlants = 0;
     for (int i = 0; i < plants.size(); i++) {
       System.out.println(plants.get(i).checkWaterLevel());
+      numberOfWitheringPlants ++;
     }
   }
 
-  public ArrayList<Plant> getPlants() {
-    return plants;
-  }
-
-  public void setPlants(ArrayList<Plant> plants) {
-    this.plants = plants;
+  public void waterThePlants(int amountOfWater) {
+    for (int i = 0; i < plants.size(); i++) {
+      if (plants.get(i).checkIfNeedsWater()) {
+        plants.get(i).watering(amountOfWater / numberOfWitheringPlants);
+      }
+    }
   }
 
   @Override

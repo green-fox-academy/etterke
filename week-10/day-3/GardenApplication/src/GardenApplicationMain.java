@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class GardenApplicationMain {
   public static void main(String[] args) {
 
@@ -8,7 +6,6 @@ public class GardenApplicationMain {
     Tree purple = new Tree("purple", 0);
     Tree orange = new Tree("orange", 0);
 
-
     Garden myGarden = new Garden();
     myGarden.add(yellow);
     myGarden.add(blue);
@@ -16,9 +13,13 @@ public class GardenApplicationMain {
     myGarden.add(orange);
 
     myGarden.checkPlantsWaterLevel();
+    myGarden.waterThePlants(40);
+    System.out.println(myGarden.toString());
+
+    myGarden.checkPlantsWaterLevel();
+    myGarden.waterThePlants(70);
+    System.out.println(myGarden.toString());
+
+    myGarden.checkPlantsWaterLevel();
   }
-
-
-
-
 }

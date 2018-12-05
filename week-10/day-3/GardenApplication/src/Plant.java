@@ -12,12 +12,16 @@ public class Plant {
     this.absorption = 1;
   }
 
-  public void watering(int amountOfWater) {
-    waterLevel += (amountOfWater * absorption);
+  public double watering(int amountOfWater) {
+    return waterLevel += (amountOfWater * absorption);
+  }
+
+  public boolean checkIfNeedsWater(){
+    return waterLevel < needsWater;
   }
 
   public String checkWaterLevel() {
-    if (waterLevel < needsWater) {
+    if (checkIfNeedsWater()) {
       return "The " + color + " " + plantType + " needs water!";
     } else {
       return "The " + color + " " + plantType + " doesn't need water!";
@@ -26,10 +30,6 @@ public class Plant {
 
   public String getColor() {
     return color;
-  }
-
-  public void setColor(String color) {
-    this.color = color;
   }
 
   public void setNeedsWater(int needsWater) {
@@ -42,10 +42,6 @@ public class Plant {
 
   public double getWaterLevel() {
     return waterLevel;
-  }
-
-  public void setWaterLevel(double waterLevel) {
-    this.waterLevel = waterLevel;
   }
 
   public void setPlantType(String plantType) {
