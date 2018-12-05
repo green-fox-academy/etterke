@@ -18,9 +18,9 @@ public class Plant {
 
   public String checkWaterLevel() {
     if (waterLevel < needsWater) {
-      return "The " + color + plantType + " needs water!";
+      return "The " + color + " " + plantType + " needs water!";
     } else {
-      return "The " + color + plantType + " doesn't need water!";
+      return "The " + color + " " + plantType + " doesn't need water!";
     }
   }
 
