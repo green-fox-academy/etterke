@@ -1,10 +1,12 @@
+package main.java.music;
+
 public abstract class Instrument {
 
-  String name;
+  public String name;
 
   public Instrument(String name){
     this.name = name;
   }
 
-  abstract void play();
+  public abstract void play();
 }
