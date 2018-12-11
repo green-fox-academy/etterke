@@ -1,6 +1,6 @@
-public class Mammals extends Animal {
+public class Mammal extends Animal {
 
-  public Mammals(String name) {
+  public Mammal(String name) {
     super(name);
   }
 
@@ -10,7 +10,7 @@ public class Mammals extends Animal {
   }
 
   @Override
-  public void move() {
-
+  public String move() {
+    return "Walks or runs";
   }
 }

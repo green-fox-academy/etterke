@@ -6,6 +6,7 @@ public abstract class Animal {
   private int weight;
 
   public Animal (String name) {
+    this.name = name;
     this.age = age;
     this.gender = gender;
     this.weight = weight;
@@ -13,7 +14,7 @@ public abstract class Animal {
 
   public abstract String breed();
 
-  public abstract void move();
+  public abstract String move();
 
   public String getName() {
     return name;
