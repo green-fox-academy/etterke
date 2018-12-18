@@ -10,16 +10,25 @@ public class List implements Serializable {
   }
 
   public void add(String todo) {
-    if (new File("todo.txt").length() > 0) {
-      this.todoList = readFromFile().getTodoList();
-    }
+    this.todoList = readFromFile().getTodoList();
     this.todoList.add(new ToDo(todo));
     writeToFile(this);
   }
 
   public void list() {
     this.todoList = readFromFile().getTodoList();
-    System.out.println(this.toString());
+    if (todoList.size() == 0) {
+      System.out.println("No todos for today! :)");
+    } else {
+      System.out.println(this.toString());
+    }
+  }
+
+  public void remove(int number) {
+    int indexToRemove = number - 1;
+    this.todoList = readFromFile().getTodoList();
+    this.todoList.remove(indexToRemove);
+    writeToFile(this);
   }
 
   public void writeToFile(List tasks) {
