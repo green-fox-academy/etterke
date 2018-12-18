@@ -10,6 +10,9 @@ public class List implements Serializable {
   }
 
   public void add(String todo) {
+    if (new File("todo.txt").length() > 0) {
+      this.todoList = readFromFile().getTodoList();
+    }
     this.todoList.add(new ToDo(todo));
     writeToFile(this);
   }
@@ -66,6 +69,10 @@ public class List implements Serializable {
 
   @Override
   public String toString() {
-    return "List{" + todoList + '}';
+    String result = "";
+    for(int i = 0; i < todoList.size(); i++) {
+      result += (i+1) + " - " + todoList.get(i) + "\n";
+    }
+    return result;
   }
 }

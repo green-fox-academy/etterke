@@ -4,6 +4,22 @@ public class TodoApp {
 
   public static void main(String[] args) {
 
+
+    List todoList = new List();
+
+    if (args.length == 0) {
+      printUsage();
+    } else if (args[0].equals("-l")) {
+      todoList.list();
+
+    } else if (args[0].equals("-a")) {
+      todoList.add(args[1]);
+      System.out.println(todoList);
+
+    }
+  }
+
+  public static void printUsage() {
     String usage = "Command Line Todo application\n" +
         "=============================\n" +
         "\n" +
@@ -13,16 +29,6 @@ public class TodoApp {
         " -r   Removes a task\n" +
         " -c   Completes a task";
 
-    List todoList = new List();
-
-    if (args.length == 0) {
-      System.out.println(usage);
-    } else if (args[0].equals("-l")) {
-      todoList.list();
-
-    } else if (args[0].equals("-a")) {
-      todoList.add(args[1]);
-      System.out.println(todoList);
-    }
+    System.out.println(usage);
   }
 }
