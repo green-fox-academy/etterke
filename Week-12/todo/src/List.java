@@ -31,6 +31,13 @@ public class List implements Serializable {
     writeToFile(this);
   }
 
+  public void check(int number) {
+    int indexToCheck = number - 1;
+    this.todoList = readFromFile().getTodoList();
+    this.todoList.get(indexToCheck).setCompleted(true);
+    writeToFile(this);
+  }
+
   public void writeToFile(List tasks) {
     String fileName = "todo.txt";
     try {

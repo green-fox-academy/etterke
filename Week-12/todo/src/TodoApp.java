@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class TodoApp {
@@ -5,22 +6,31 @@ public class TodoApp {
   public static void main(String[] args) {
 
     List todoList = new List();
+    ArgumentsCheck handle = new ArgumentsCheck();
 
     if (args.length == 0) {
       printUsage();
-    } else if (args[0].equals("-l")) {
-      todoList.list();
+    }
 
-    } else if (args.length == 1 && args[0].equals("-a")) {
-      System.out.println("Unable to add: no task provided");
+    if (args.length == 1) {
+      handle.checkArgumentsValidity(args);
+      printUsage();
+    }
 
-    } else if (args[0].equals("-a")) {
-      todoList.add(args[1]);
-      System.out.println(todoList);
+    if (args[0].equals("-l")) {
+      handle.checkArgumentsWhenListing(args, todoList);
+    }
 
-    } else if (args[0].equals("-r")) {
-      todoList.remove(Integer.parseInt(args[1]));
-      System.out.println(todoList);
+    if (args[0].equals("-a")) {
+      handle.checkArgumentsWhenAdding(args, todoList);
+    }
+
+    if (args[0].equals("-r")) {
+      handle.checkArgumentsWhenRemoving(args, todoList);
+    }
+
+    if (args[0].equals("-c")) {
+      handle.checkArgumentsWhenChecking(args, todoList);
     }
   }
 
