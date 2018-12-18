@@ -40,16 +40,8 @@ public class ArgumentsCheck {
   }
 
   public void checkArgumentsWhenListing(String[] args, List todoList) {
-      try {
-        todoList.list();
-      } catch (ArrayIndexOutOfBoundsException a) {
-        System.out.println("Something went wrong with listing the tasks");
-      }
-  }
-
-  public void checkArgumentsValidity(String[] args) {
-    if (!args[0].equals("-l") || !args[0].equalsIgnoreCase("-a") || !args[0].equals("-r") || !args[0].equals("-c")) {
-      System.out.println("Unsupported argument\n");
+    if (args.length == 1) {
+      todoList.list();
     }
   }
 }

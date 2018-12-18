@@ -71,16 +71,8 @@ public class List implements Serializable {
     return tasks;
   }
 
-  public int size() {
-    return this.todoList.size();
-  }
-
   public ArrayList<ToDo> getTodoList() {
     return todoList;
-  }
-
-  public void setTodoList(ArrayList<ToDo> todoList) {
-    this.todoList = todoList;
   }
 
   @Override
