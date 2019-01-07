@@ -13,11 +13,9 @@ public class Conditionals {
 
         if (userInput1 % 2 == 0) {
             System.out.println("Even");
-
         }   else {
             System.out.println("Odd");
         }
-
 
         //OneTwoALot
 
@@ -27,17 +25,13 @@ public class Conditionals {
 
         if (userInput2 <= 0) {
             System.out.println("Not enough");
-
         }   else if (userInput2 == 1) {
             System.out.println("One");
-
         }   else if (userInput2 == 2) {
             System.out.println("Two");
-
         }   else if (userInput2 > 2) {
             System.out.println("A lot");
         }
-
 
         //PrintBigger
 
@@ -48,11 +42,9 @@ public class Conditionals {
 
         if (userInput3 > userInput4) {
             System.out.println(userInput3);
-
         } else {
             System.out.println(userInput4);
         }
-
 
         // PartyIndicator
 
@@ -64,18 +56,13 @@ public class Conditionals {
 
         if (numberOfGirls == 0) {
             System.out.println("Sausage party");
-
         }   else if ((numberOfBoys == numberOfGirls) && (numberOfBoys + numberOfGirls) >= 20) {
             System.out.println("The party is excellent!");
-
         }   else if ((numberOfBoys != numberOfGirls) && (numberOfBoys + numberOfGirls) >= 20) {
             System.out.println("Quite cool party!");
-
         }   else if ((numberOfBoys + numberOfGirls) < 20) {
             System.out.println("Average party...");
-
         }
-
 
         // ConditionalVariableMutation
 
@@ -93,13 +80,10 @@ public class Conditionals {
 
         if (10 < b && b < 20) {
             out2 = "Sweet!";
-
         }   else if (b < 10) {
             out2 = "Less!";
-
         }   else if (b > 20) {
             out2 = "More!";
-
         }
 
         System.out.println(out2);
@@ -110,10 +94,8 @@ public class Conditionals {
 
         if ((credits >= 50) && (isBonus = false)) {
             c -= 2;
-
         }   else if ((credits < 50) && (isBonus = false)) {
             c -= 1;
-
         }   else if (isBonus = true) {
             c = 123;
         }
@@ -126,14 +108,11 @@ public class Conditionals {
 
         if ((d % 4 == 0) && time > 200) {
             out3 = "check";
-
         } else if (time > 200) {
             out3 = "time out";
-
         } else {
             out3 = "Run Forest, run!";
         }
-
         System.out.println(out3);
     }
 }
