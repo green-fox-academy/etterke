@@ -4,7 +4,6 @@ public class Loops {
 
     public static void main(String[] args) {
 
-
         // IWontCheatOnTheExam
 
         String line = "I won't cheat on the exam";
@@ -13,7 +12,6 @@ public class Loops {
             System.out.println(line);
         }
 
-
         // PrintEven
 
         int a = 0;
@@ -21,7 +19,6 @@ public class Loops {
             System.out.println(a);
             a += 2;
         }
-
 
         // MultiplicationTable
 
@@ -34,7 +31,6 @@ public class Loops {
             System.out.println((i + 1) + " x " + userInput1 + " = " + (i + 1) * userInput1);
         }
 
-
         //CountFromTo
 
         System.out.println("Please write two numbers here: ");
@@ -43,31 +39,25 @@ public class Loops {
 
         if (number1 > number2) {
             System.out.println("The second number should be bigger!");
-
         } else {
             for (int b = 0; b < (number2 - number1); b++) {
                 System.out.println(number1 + b);
             }
         }
 
-
         // FizzBuzz
 
         for (int number = 0; number < 100; number++) {
             if (((number + 1) % 3 == 0) && ((number + 1) % 5 == 0)) {
                 System.out.println("FizzBuzz");
-
             } else if ((number + 1) % 3 == 0) {
                 System.out.println("Fizz");
-
             } else if ((number + 1) % 5 == 0) {
                 System.out.println("Buzz");
-
             } else {
                 System.out.println(number + 1);
             }
         }
-
 
         // DrawTriangle
 
@@ -77,7 +67,7 @@ public class Loops {
 
         for (int e = 0; e < number3; e++) {
             System.out.println(star);
-            star = star + "*";
+            star += "*";
         }
 
 
@@ -107,19 +97,15 @@ public class Loops {
         for (int i = 0; i < 100; i ++) {
             System.out.println(question);
             int guess = scanner.nextInt();
-
             if (guess < favNumber) {
                 System.out.println("The stored number is higher");
-
             } else if (guess > favNumber) {
                 System.out.println("The stored number is lower");
-
             } else {
                 System.out.println("You found the number: " + favNumber);
                 break;
             }
         }
-
 
         // DrawAChessTable
 
@@ -137,7 +123,6 @@ public class Loops {
             System.out.println();
         }
 
-
         // DrawPyramid
 
         System.out.println("Please write a number for the layers of the pyramid here: ");
@@ -151,7 +136,6 @@ public class Loops {
             }
             System.out.println();
         }
-
 
         // DrawSquare
 
@@ -169,7 +153,6 @@ public class Loops {
             System.out.println();
         }
 
-
         // ParametricAverage
 
         int sum = 0;
@@ -180,7 +163,7 @@ public class Loops {
         for (int i = 0; i < number8; i++) {
             System.out.println("Enter number" + (i + 1) + " :");
             int number9 = scanner.nextInt();
-            sum = sum + number9;
+            sum += number9;
         }
         double average = sum / number8;
 
