@@ -11,11 +11,14 @@ public class Variables {
 
         // Swap
 
-        int a = 526;
-        int b = 123;
+        int a = 123;
+        int b = 526;
 
-        System.out.println(a);
-        System.out.println(b);
+        int temp = a;
+        a = b;
+        b = temp;
+
+        System.out.println(a + " " + b);
 
 
         // BMI
@@ -23,8 +26,9 @@ public class Variables {
         double massInKg = 81.2;
         double heightInM = 1.78;
         heightInM *= 1.78;
+        double bmi = massInKg / heightInM;
 
-        System.out.println(massInKg / heightInM);
+        System.out.println(bmi);
 
 
         // DefineBasicInfo
@@ -34,10 +38,7 @@ public class Variables {
         double myHeight = 1.74;
         boolean maritalStatus = true;
 
-        System.out.println("My name is: " + myName);
-        System.out.println("I am " + myAge + " years old");
-        System.out.println("I am " + myHeight + " cms tall");
-        System.out.println("I am married: " + maritalStatus);
+        System.out.println("My name is: " + myName + "\n" + "I am " + myAge + " years old" + "\n" + "I am " + myHeight + " cms tall" + "\n" + "I am married: " + maritalStatus);
 
 
         // VariableMutation
@@ -101,4 +102,5 @@ public class Variables {
 
         System.out.println(remainingSecondsInADay);
     }
+
 }
