@@ -8,8 +8,7 @@ public class Reverse {
         int[] reverse = new int[aj.length];
         for (int i = 0; i < reverse.length; i++) {
             reverse[i] = aj[aj.length - 1 - i];
-
-            System.out.print((reverse[i]) + " ");
         }
+        System.out.println(Arrays.toString(reverse));
     }
 }
