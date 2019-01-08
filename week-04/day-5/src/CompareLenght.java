@@ -8,7 +8,6 @@ public class CompareLenght {
         int [] p2 = {4, 5};
 
         if (p2.length > p1.length) {
-
             System.out.println("p2 has more elements than p1");
         } else {
             System.out.println("p1 has more elements then p2");

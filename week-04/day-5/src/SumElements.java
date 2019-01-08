@@ -6,6 +6,5 @@ public class SumElements {
         int sumOfSecondAndThird = r[1] + r[2];
 
         System.out.printf("The sum of the second and third element is: " + sumOfSecondAndThird);
-
     }
 }
