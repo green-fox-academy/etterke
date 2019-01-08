@@ -4,12 +4,10 @@ public class AppendAFunc {
 
         String typo = "Chinchill";
         System.out.println(appendAFunc(typo));
-
     }
 
     public static String appendAFunc (String text) {
 
         return text + "a";
-
     }
 }
