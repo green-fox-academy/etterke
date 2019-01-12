@@ -17,7 +17,7 @@ public class PalindromeBuilder {
     char[] palindromeEnd = new char[palindromeBeginning.length];
 
     for (int i = 0; i < palindromeEnd.length; i++) {
-      palindromeEnd[i] = palindromeBeginning[palindromeBeginning.length - 1- i];
+      palindromeEnd[i] = palindromeBeginning[palindromeBeginning.length - 1 - i];
     }
     String palindrome = a + String.valueOf(palindromeEnd);
     return  palindrome;
