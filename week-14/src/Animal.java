@@ -49,4 +49,13 @@ public class Animal {
   public void setHealCost(int healCost) {
     this.healCost = healCost;
   }
+
+  @Override
+  public String toString() {
+    if (!this.isHealthy) {
+      return this.getName() + " is not healthy, the heal cost is: " + this.getHealCost() + "$, and is not adoptable";
+    } else {
+      return this.getName() + " is healthy, and adoptable";
+    }
+  }
 }
