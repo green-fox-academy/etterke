@@ -26,7 +26,7 @@ public class AnimalShelter {
 
     for (int i = 0; i < shelterAnimals.size(); i++) {
       if (!shelterAnimals.get(0).isHealthy && budget > shelterAnimals.get(0).getHealCost()) {
-        shelterAnimals.get(0).setHealthy(true);
+        shelterAnimals.get(0).heal();
         numberOfHealedAnimals++;
       }
       budget -= shelterAnimals.get(0).getHealCost();
