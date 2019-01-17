@@ -29,7 +29,7 @@ public class AddStrings {
       for(int i = 0; i < firstWord.length(); i++){
         twoWordsCombined2 += String.valueOf(firstWord.charAt(i)) + String.valueOf(secondWord.charAt(i));
       }
-    } else if (secondWord.length() >= firstWord.length()) {
+    } else {
       for(int i = 0; i < secondWord.length(); i++){
         if(i < firstWord.length()){
           twoWordsCombined2 += firstWord.charAt(i);
