@@ -11,7 +11,6 @@ public class AddStrings {
 
     System.out.println(put2and2together(firstWord, secondWord));
     System.out.println(put2and2together2(firstWord, secondWord));
-
   }
 
   private static String put2and2together(String firstWord, String secondWord) {
