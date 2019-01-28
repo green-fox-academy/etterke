@@ -1,0 +1,87 @@
+.image {
+    margin-top: 20px;
+    padding-left: 80px;
+    padding-top: 20px;
+}
+
+.links {
+    padding-right: 50px;
+    padding-top: 15px;
+    float: right;
+}
+
+#navigation {
+    margin: 0px;
+    padding: 0px;
+    height: 45px;
+    background: #333333;
+    font-size: 14px;
+    font-family: consolas, courier;
+    color: #ff0099;    
+}
+
+p {
+    margin: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: consolas, courier;
+}
+
+a{
+    text-decoration: underline;
+    color: #ff0099;
+}
+
+h1 {
+    margin: 40px;
+    margin-bottom: 10px;
+    padding: 40px;
+    padding-bottom: 10px;
+    height: 25px;
+    font-size: 40px;
+    font-family: Merriweather, serif;
+    color: black;
+}
+
+h2 {
+    margin: 40px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding: 40px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    font-size: 21px;
+    font-family: Merriweather, serif;
+    font-style: normal;
+    color: #ff0099;
+}
+
+#dotted-line {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    font-size: 30px;
+    font-family: Merriweather, serif;
+}
+
+h4 {
+    margin: 40px;
+    margin-bottom: 10px;
+    padding: 40px;
+    padding-block-start: 10px;
+    font-size: 25px;
+    font-family: Merriweather, serif;
+}
+
+#intruction-set {
+    margin-top: 10px;
+    padding: 40px;
+    padding-top: 10px;
+    font-size: 20px;
+}
+
