@@ -61,7 +61,6 @@ body {
 }
 
 .form-row-password {
-    margin-bottom: 40px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -73,13 +72,25 @@ body {
     margin-bottom: 15px;
 }
 
-.form-row-password input {
+.form-row-password input[type='password'] {
+    background: url(https://cdn3.iconfinder.com/data/icons/show-and-hide-password/100/show_hide_password-03-512.png)no-repeat;
     background-color: #FFFFFF;
     border: 1px solid lightgrey;
     border-radius: 3px;
     width: 100%;
     padding: 10px;
     font-size: 14px;
+    
+}
+
+.form-row-password input[type='password']{
+    background-size: 20px;
+    background-position: right;
+}
+
+.p {
+    text-align: right;
+    font-size: 10px;
 }
 .form-row button {
     font-size: 10px;
@@ -92,6 +103,7 @@ body {
     border-radius: 30px;
   
     width: 10%;
+    margin-top: 40px;
     padding: 10px 40px;
     cursor: pointer;
 }
@@ -103,6 +115,3 @@ body {
 .form-row button:active {
     background-color:black;
 }
-
-
-
