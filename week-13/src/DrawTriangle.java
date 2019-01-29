@@ -3,32 +3,20 @@ public class DrawTriangle {
 
   public static void main(String[] args) {
 
-    int number = 3;
+    int height = 9;
 
-    printMatrix(number);
-  }
+    String star = "*,";
+    String space = "_,";
 
-  public static void printMatrix(int number) {
-    String[][] board = new String[number][5];
-    String[][] stars = new String[number][5];
-    String[][] resultMatrix = new String[number][5];
-
-    String star = "*";
-
-    for (int i = 0; i < number; i++) {
-      for (int j = 0; j < 5; j++) {
-        if (board[i][j] == stars[i][j]) {
-          resultMatrix[i][j] = star;
+    for (int i = 0; i < height; i++) {
+      for (int j = height; j > i; j--) {
+        if(i == j) {
+          System.out.print(star);
+        } else {
+          System.out.print(space);
         }
-      }
-    }
-
-    for (String[] row : resultMatrix) {
-      for (String element : row) {
-        System.out.print(element + ", ");
       }
       System.out.println();
     }
   }
 }
-

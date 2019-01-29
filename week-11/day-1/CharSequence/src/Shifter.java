@@ -28,4 +28,20 @@ public class Shifter implements CharSequence {
   public CharSequence subSequence(int start, int end) {
     return word.subSequence(start, end);
   }
+
+  public String getWord() {
+    return word;
+  }
+
+  public void setWord(String word) {
+    this.word = word;
+  }
+
+  public int getCharsToShift() {
+    return charsToShift;
+  }
+
+  public void setCharsToShift(int charsToShift) {
+    this.charsToShift = charsToShift;
+  }
 }

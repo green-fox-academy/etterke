@@ -7,14 +7,17 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class GoToCenter {
     public static void mainDraw(Graphics graphics) {
 
+        //Kell, hogy legyen benne jopar integer, hogy tudjon kezdo pontot generalni
         ArrayList<Integer> CoordX1 = new ArrayList<>();
         ArrayList<Integer> CoordY1 = new ArrayList<>();
 
+        //Három vonalig generál egy random számot
         for (int i = 0; i < 3; i++) {
             CoordX1.add(i, (int) (Math.random() * 320));
             CoordY1.add(i, (int) (Math.random() * 320));
         }
 
+        //General random szamokat a vonalakhoz
         for (int j = 0; j < CoordX1.size(); j++) {
             lineDrawing(graphics, CoordX1.get(j), CoordY1.get(j));
         }
