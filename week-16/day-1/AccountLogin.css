@@ -53,7 +53,7 @@ body {
 
 .form-row input[type='text'] {
     background-color: #FFFFFF;
-    border: 1px solid lightgray;
+    border: 1px solid lightgray  ;
     border-radius: 3px;
     width: 100%;
     padding: 10px;
@@ -77,19 +77,14 @@ input:invalid {
 }
 
 .form-row-password input[type='password'] {
-    background: url(https://cdn3.iconfinder.com/data/icons/show-and-hide-password/100/show_hide_password-03-512.png)no-repeat;
+    background: url(https://cdn3.iconfinder.com/data/icons/show-and-hide-password/100/show_hide_password-03-512.png)no-repeat 370px 8px;
+    background-size: 20px;
     background-color: #FFFFFF;
     border: 1px solid lightgrey;
     border-radius: 3px;
     width: 100%;
     padding: 10px;
     font-size: 14px;
-    
-}
-
-.form-row-password input[type='password']{
-    background-size: 20px;
-    background-position: right;
 }
 
 .p {
