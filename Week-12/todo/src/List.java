@@ -34,7 +34,7 @@ public class List implements Serializable {
   public void check(int number) {
     int indexToCheck = number - 1;
     this.todoList = readFromFile().getTodoList();
-    this.todoList.get(indexToCheck).setCompleted(true);
+    this.todoList.get(indexToCheck).complete();
     writeToFile(this);
   }
 

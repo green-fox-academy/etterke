@@ -1,21 +1,38 @@
 import java.io.Serializable;
+import java.time.Clock;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.Optional;
 
 public class ToDo implements Serializable {
 
   private String name;
-  private boolean completed;
+  private LocalDateTime createdAt;
+  private LocalDateTime completedAt;
 
   public ToDo(String name) {
     this.name = name;
-    this.completed = false;
+    this.createdAt = LocalDateTime.now(Clock.systemUTC());
   }
 
-  public void setCompleted(boolean completed) {
-    this.completed = completed;
+  public void complete() {
+    completedAt = LocalDateTime.now(Clock.systemUTC());
+  }
+
+  public boolean isCompleted(){
+    return completedAt != null && completedAt.isBefore(LocalDateTime.now(Clock.systemUTC()));
+  }
+
+  public Optional<Duration> completionTime(){
+    if(isCompleted()) {
+      return Optional.of(Duration.between(createdAt, completedAt));
+    }
+    return Optional.empty();
   }
 
   @Override
   public String toString() {
-    return (completed ? "[x] " : "[ ] ") + name;
+    return (isCompleted() ? "[x] " : "[ ] ") + name +
+            (completionTime().isPresent() ? " completed in " + completionTime().get().getSeconds() + " seconds" : "");
   }
 }
