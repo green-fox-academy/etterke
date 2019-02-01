@@ -23,6 +23,13 @@ public class ToDo implements Serializable {
     return completedAt != null && completedAt.isBefore(LocalDateTime.now(Clock.systemUTC()));
   }
 
+  public Optional<Duration> completionTime(){
+    if(isCompleted()) {
+      return Optional.of(Duration.between(createdAt, completedAt));
+    }
+    return Optional.empty();
+  }
+
   @Override
   public String toString() {
     return (isCompleted() ? "[x] " : "[ ] ") + name +
