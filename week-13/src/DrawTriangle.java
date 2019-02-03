@@ -9,7 +9,7 @@ public class DrawTriangle {
     String space = "_,";
 
     for (int i = 0; i < height; i++) {
-      for (int j = height; j > i; j--) {
+      for (int j = 0; j > i; j++) {
         if(i == j) {
           System.out.print(star);
         } else {

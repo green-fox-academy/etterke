@@ -31,8 +31,8 @@ public class SymmetricMatrix {
     for (int i = 0; i < symmetricMatrix.size(); i++) {
       for (int j = 0; j < symmetricMatrix.get(i).size() ; j++) {
          return (symmetricMatrix.get(i).get(j).equals(symmetricMatrix.get(j).get(i)));
-        }
       }
+    }
     return false;
   }
 }

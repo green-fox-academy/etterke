@@ -14,26 +14,48 @@ public class AddNeighbours {
   public static void main(String[] args) {
     ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
 
-    System.out.println(sumElementsNextToOneAnother(numbers));
+    System.out.println(addNeighbouringElements(numbers));
+
+//    System.out.println(sumElementsNextToOneAnother(numbers));
 
   }
 
-  private static ArrayList<Integer> sumElementsNextToOneAnother(ArrayList<Integer> numbers) {
-    ArrayList<Integer> summedNumbers = new ArrayList<>();
+
+  private static ArrayList<Integer> addNeighbouringElements(ArrayList<Integer> numbers) {
+    ArrayList<Integer> addedNumbers = new ArrayList<>();
     int sum;
 
-    if (numbers.size() % 2 == 0){
+    if(numbers.size() % 2 == 0) {
       for (int i = 0; i < numbers.size(); i+=2) {
         sum = numbers.get(i) + numbers.get(i + 1);
-        summedNumbers.add(sum);
+        addedNumbers.add(sum);
       }
     } else {
       for (int i = 0; i < numbers.size() - 1; i+=2) {
         sum = numbers.get(i) + numbers.get(i + 1);
-        summedNumbers.add(sum);
+        addedNumbers.add(sum);
       }
-      summedNumbers.add(numbers.get(numbers.size() - 1));
+      addedNumbers.add(numbers.get(numbers.size() - 1));
     }
-    return summedNumbers;
+    return addedNumbers;
   }
+
+//  private static ArrayList<Integer> sumElementsNextToOneAnother(ArrayList<Integer> numbers) {
+//    ArrayList<Integer> summedNumbers = new ArrayList<>();
+//    int sum;
+//
+//    if (numbers.size() % 2 == 0){
+//      for (int i = 0; i < numbers.size(); i+=2) {
+//        sum = numbers.get(i) + numbers.get(i + 1);
+//        summedNumbers.add(sum);
+//      }
+//    } else {
+//      for (int i = 0; i < numbers.size() - 1; i+=2) {
+//        sum = numbers.get(i) + numbers.get(i + 1);
+//        summedNumbers.add(sum);
+//      }
+//      summedNumbers.add(numbers.get(numbers.size() - 1));
+//    }
+//    return summedNumbers;
+//  }
 }
