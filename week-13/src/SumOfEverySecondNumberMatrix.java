@@ -19,7 +19,7 @@ public class SumOfEverySecondNumberMatrix {
 
   public static void main(String[] args) {
 
-    int[][] numbers = {{2, 4, 5}, {1, 5, 9}, {3, 6, 3}};
+    int[][] numbers = {{2, 4, 5, 7}, {1, 5, 9, 2}, {3, 6, 3, 5}, {8, 2, 1, 7}};
 
 
     System.out.println(sumEverySecondNumber(numbers));
@@ -29,8 +29,8 @@ public class SumOfEverySecondNumberMatrix {
     int sumOfEverySecNumber = 0;
 
     for (int i = 0; i < numbers.length; i++) {
-      for (int j = 1; j < numbers[i].length; j+=2) {
-        sumOfEverySecNumber += numbers[i][j];
+      for (int j = 0; j < numbers[i].length - 1; j+=2) {
+        sumOfEverySecNumber += numbers[i][j + 1];
       }
     }
     return sumOfEverySecNumber;
