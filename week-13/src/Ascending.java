@@ -20,24 +20,43 @@ public class Ascending {
   }
 
   private static ArrayList<Integer> sortNumbersAscendingBetweenRange(ArrayList<Integer> numbers, int min, int max) {
-    int temp;
+    ArrayList<Integer> finalList = new ArrayList<>();
 
     for (int i = 0; i < numbers.size(); i++) {
       for (int j = i + 1; j < numbers.size(); j++) {
+        int temp;
         if (numbers.get(i) > numbers.get(j)) {
           temp = numbers.get(i);
           numbers.set(i, numbers.get(j));
           numbers.set(j, temp);
         }
       }
-    }
-
-    ArrayList<Integer> finalList = new ArrayList<>();
-    for (int i = 0; i < numbers.size(); i++) {
-      if (numbers.get(i) >= min && numbers.get(i) <= max) {
+      if (numbers.get(i) >= min && numbers.get(i) <= max){
         finalList.add(numbers.get(i));
       }
     }
-    return  finalList;
+    return finalList;
   }
+
+//  private static ArrayList<Integer> sortNumbersAscendingBetweenRange(ArrayList<Integer> numbers, int min, int max) {
+//    int temp;
+//
+//    for (int i = 0; i < numbers.size(); i++) {
+//      for (int j = i + 1; j < numbers.size(); j++) {
+//        if (numbers.get(i) > numbers.get(j)) {
+//          temp = numbers.get(i);
+//          numbers.set(i, numbers.get(j));
+//          numbers.set(j, temp);
+//        }
+//      }
+//    }
+//
+//    ArrayList<Integer> finalList = new ArrayList<>();
+//    for (int i = 0; i < numbers.size(); i++) {
+//      if (numbers.get(i) >= min && numbers.get(i) <= max) {
+//        finalList.add(numbers.get(i));
+//      }
+//    }
+//    return  finalList;
+//  }
 }
