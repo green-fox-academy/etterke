@@ -6,7 +6,7 @@
 </head>
 <body>
     <div th:each="account : ${accountList}" th:object="${account}">
-        <h1 th:text="'This is the account of ' + *{name} + ', the account holder is a(n) ' + *{animalType} + ', the account balance is currently ' + *{balance} + ' ' + *{currency} + '.'"></h1>
+        <h1 th:text="'This is the account of ' + *{name} + ', the account holder is a ' + *{animalType} + ', the account balance is currently ' + *{balance} + ' ' + *{currency} + '.'"></h1>
     </div>
 
 </body>
