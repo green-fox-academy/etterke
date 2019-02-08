@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Account of Simba</title>
+    <title>Accounts at the Bank of Simba</title>
 </head>
 <body>
-    <div th:object="${bankAccount}">
+    <div th:each="account : ${accountList}" th:object="${account}">
         <h1 th:text="'This is the account of ' + *{name} + ', the account holder is a(n) ' + *{animalType} + ', the account balance is currently ' + *{balance} + ' ' + *{currency} + '.'"></h1>
     </div>
+
 </body>
 </html>
