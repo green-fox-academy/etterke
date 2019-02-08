@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>Accounts at the Bank of Simba</title>
+</head>
+<body>
+    <div>
+        <h1 th:text="'This is the account of ' + ${name} + ' + ' 'the account holder is a(n)' + ${animalType}, 'the account balance is currently' + ${balance}"></h1>
+    </div>
+</body>
+</html>
