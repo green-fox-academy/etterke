@@ -5,9 +5,23 @@
     <title>Accounts at the Bank of Simba</title>
 </head>
 <body>
-    <div th:each="account : ${accountList}" th:object="${account}">
-        <h1 th:text="'This is the account of ' + *{name} + ', the account holder is a ' + *{animalType} + ', the account balance is currently ' + *{balance} + ' ' + *{currency} + '.'"></h1>
-    </div>
-
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Account holder's name</th>
+            <th>The animal's type</th>
+            <th>Account balance</th>
+        </tr>
+    </thead>
+    <tbody th:each="account : ${accountList}">
+        <tr >
+            <td th:text="${accountStat.count}"></td>
+            <td th:text="${account.name}"></td>
+            <td th:text="${account.animalType}"></td>
+            <td th:text="${account.balance} + ' ' + ${account.currency}"></td>
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>
