@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accounts at Bank of Simba</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="/accountStyle.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+</head>
+<body>
+<h1>
+    Bank of Simba
+</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>King or not?</th>
+        <th>Account holder's name</th>
+        <th>Animal type</th>
+        <th>Account balance</th>
+    </tr>
+    </thead>
+    <tbody th:each="account : ${accountList}">
+    <tr th:style="${account.king} ? 'color:darkgoldenrod; font-weight:bold'">
+        <td th:text="${accountStat.count}"></td>
+        <td th:text="${account.king} ? 'YES' : 'NO'"></td>
+        <td th:text="${account.name}"></td>
+        <td th:text="${account.animalType}"></td>
+        <td th:text="${account.balance} + ' ' + ${account.currency}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

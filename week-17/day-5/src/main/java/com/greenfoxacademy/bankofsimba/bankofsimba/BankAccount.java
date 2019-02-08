@@ -10,11 +10,13 @@ public class BankAccount {
   private String name;
   private String balance;
   private String animalType;
+  private boolean king;
 
-  public BankAccount(String name, int balance, String animalType) {
+  public BankAccount(String name, int balance, String animalType, boolean king) {
     this.name = name;
     this.balance = df2.format(balance);
     this.animalType = animalType;
+    this.king = king;
   }
 
   public String getName() {
@@ -45,4 +47,11 @@ public class BankAccount {
     return currency;
   }
 
+  public boolean isKing() {
+    return king;
+  }
+
+  public void setKing(boolean king) {
+    this.king = king;
+  }
 }
