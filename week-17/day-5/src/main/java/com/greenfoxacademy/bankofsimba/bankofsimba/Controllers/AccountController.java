@@ -11,19 +11,19 @@ import java.util.List;
 @Controller
 public class AccountController {
 
-  BankAccount firstAccount = new BankAccount("Simba", 30000, "lion", true, true);
+  BankAccount firstAccount = new BankAccount("Simba", 300, "lion", true, true);
   List<BankAccount> accountList = new ArrayList<>();
 
   public AccountController(){
     accountList.add(firstAccount);
-    accountList.add(new BankAccount("Scar", 250, "lion", false, false));
-    accountList.add(new BankAccount("Mufasa", 23000, "lion", true, true));
-    accountList.add(new BankAccount("Pumbaa", 3789, "warthog", false, true));
-    accountList.add(new BankAccount("Timon", 8374, "meerkat", false, true));
-    accountList.add(new BankAccount("Ed", 3782, "hyena", false, false));
-    accountList.add(new BankAccount("Zazu", 234, "hornbill", false, true));
-    accountList.add(new BankAccount("Rafiki", 383983, "baboon", false, true));
-    accountList.add(new BankAccount("Nala", 38927, "lion", false, true));
+    accountList.add(new BankAccount("Scar", 25, "lion", false, false));
+    accountList.add(new BankAccount("Mufasa", 500, "lion", true, true));
+    accountList.add(new BankAccount("Pumbaa", 100, "warthog", false, true));
+    accountList.add(new BankAccount("Timon", 110, "meerkat", false, true));
+    accountList.add(new BankAccount("Ed", 40, "hyena", false, false));
+    accountList.add(new BankAccount("Zazu", 250, "hornbill", false, true));
+    accountList.add(new BankAccount("Rafiki", 400, "baboon", false, true));
+    accountList.add(new BankAccount("Nala", 280, "lion", false, true));
   }
 
   @RequestMapping("/show")
@@ -50,4 +50,9 @@ public class AccountController {
     return "accountListWithKingAndGoodGuys";
   }
 
+  @RequestMapping("/showAllAccounts/whoIsTheKing/andTheGoodGuys/raiseMoneyForm")
+  public String raiseMoneyForm(Model model) {
+    model.addAttribute("accountList", accountList);
+    return "raiseMoney";
+  }
 }
