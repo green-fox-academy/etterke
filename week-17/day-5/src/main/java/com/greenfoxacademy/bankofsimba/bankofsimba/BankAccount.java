@@ -11,20 +11,18 @@ public class BankAccount {
   private String balance;
   private String animalType;
   private boolean king;
+  private boolean goodGuy;
 
-  public BankAccount(String name, int balance, String animalType, boolean king) {
+  public BankAccount(String name, int balance, String animalType, boolean king, boolean goodGuy) {
     this.name = name;
     this.balance = df2.format(balance);
     this.animalType = animalType;
     this.king = king;
+    this.goodGuy = goodGuy;
   }
 
   public String getName() {
     return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public String getBalance() {
@@ -39,10 +37,6 @@ public class BankAccount {
     return animalType;
   }
 
-  public void setAnimalType(String animalType) {
-    this.animalType = animalType;
-  }
-
   public String getCurrency() {
     return currency;
   }
@@ -51,7 +45,11 @@ public class BankAccount {
     return king;
   }
 
-  public void setKing(boolean king) {
-    this.king = king;
+  public boolean isGoodGuy() {
+    return goodGuy;
+  }
+
+  public void setGoodGuy(boolean goodGuy) {
+    this.goodGuy = goodGuy;
   }
 }
