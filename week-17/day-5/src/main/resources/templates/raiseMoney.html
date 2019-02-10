@@ -10,9 +10,9 @@
 <h1>
     Bank of Simba
 </h1>
-<form action="" method="post" class="raise-money">
-    <h2>Please select, which animal you would like to raise money for</h2>
-    <select  class="animal-type">
+<h2>Please select, which animal you would like to raise money for</h2>
+<form th:action="@{raiseMoney}" method="post" class="raise-money">
+    <select th:object="${animalType}" class="animal-type">
         <option value='lion'>Lion</option>
         <option value='baboon'>Baboon</option>
         <option value='warthog'>Warthog</option>
@@ -20,7 +20,7 @@
         <option value='hyena'>Hyena</option>
         <option value='hornbill'>Hornbill</option>
     </select>
-    <input type="submit" name="submit"/>
+    <input type="submit" class="submit" name="submit"/>
 
 </form>
 </body>

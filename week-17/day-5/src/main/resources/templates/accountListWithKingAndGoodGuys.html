@@ -31,10 +31,10 @@
             <span th:case="true">Good guy</span>
             <span th:case="false">Bad guy</span>
         </td>
-        <td th:text="${account.balance} + ' ' + ${account.currency}"></td>
+        <td th:text="${#numbers.formatDecimal(account.balance, 1, 2, 'POINT')} + ' ' + ${account.currency}"></td>
     </tr>
     </tbody>
 </table>
-<p>To raise money for Account holders, <a href="/showAllAccounts/whoIsTheKing/andTheGoodGuys/raiseMoneyForm"> click here!</a></p>
+<p>To raise money for Account holders, <a href="/raiseMoney"> click here!</a></p>
 </body>
 </html>

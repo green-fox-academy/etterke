@@ -26,7 +26,7 @@
         <td th:text="${account.king} ? 'YES' : 'NO'"></td>
         <td th:text="${account.name}"></td>
         <td th:text="${account.animalType}"></td>
-        <td th:text="${account.balance} + ' ' + ${account.currency}"></td>
+        <td th:text="${#numbers.formatDecimal(account.balance, 1, 2, 'POINT')} + ' ' + ${account.currency}"></td>
     </tr>
     </tbody>
 </table>

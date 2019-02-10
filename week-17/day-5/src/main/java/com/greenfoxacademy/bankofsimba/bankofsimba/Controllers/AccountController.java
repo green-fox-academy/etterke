@@ -4,6 +4,7 @@ import com.greenfoxacademy.bankofsimba.bankofsimba.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,9 +51,25 @@ public class AccountController {
     return "accountListWithKingAndGoodGuys";
   }
 
-  @RequestMapping("/showAllAccounts/whoIsTheKing/andTheGoodGuys/raiseMoneyForm")
+  @RequestMapping(value = "raiseMoney", method = RequestMethod.GET)
   public String raiseMoneyForm(Model model) {
-    model.addAttribute("accountList", accountList);
+    String type = new String();
+
+    for (BankAccount account : accountList) {
+      type = account.getAnimalType();
+    }
+
+    model.addAttribute("animalType", type);
     return "raiseMoney";
+  }
+
+  @RequestMapping(value = "raiseMoney", method = RequestMethod.POST)
+  public String raiseMoney(BankAccount account){
+    if (account.getAnimalType().equals("Lion")){
+      account.setBalance(100);
+    }else{
+      account.setBalance(10);
+    }
+    return "redirect:accountListWithKingAndGoodGuys";
   }
 }
