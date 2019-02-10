@@ -12,13 +12,8 @@
 </h1>
 <h2>Please select, which animal you would like to raise money for</h2>
 <form th:action="@{raiseMoney}" method="post" class="raise-money">
-    <select th:object="${animalType}" class="animal-type">
-        <option value='lion'>Lion</option>
-        <option value='baboon'>Baboon</option>
-        <option value='warthog'>Warthog</option>
-        <option value='meerkat'>Meerkat</option>
-        <option value='hyena'>Hyena</option>
-        <option value='hornbill'>Hornbill</option>
+    <select id="animal-name" name="animal-name">
+        <option th:each="account : ${accountList}" th:value="${account.name}" th:text="${account.name}"></option>
     </select>
     <input type="submit" class="submit" name="submit"/>
 
