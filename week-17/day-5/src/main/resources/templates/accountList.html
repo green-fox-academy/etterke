@@ -19,8 +19,8 @@
             <th>Account balance</th>
         </tr>
     </thead>
-    <tbody th:each="account : ${accountList}">
-        <tr >
+    <tbody>
+        <tr th:each="account : ${accountList}">
             <td th:text="${accountStat.count}"></td>
             <td th:text="${account.name}"></td>
             <td th:text="${account.animalType}"></td>

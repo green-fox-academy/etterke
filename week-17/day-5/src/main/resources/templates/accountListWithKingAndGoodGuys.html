@@ -21,8 +21,8 @@
         <th>Account balance</th>
     </tr>
     </thead>
-    <tbody th:each="account : ${accountList}">
-    <tr th:style="${account.king} ? 'color:darkgoldenrod; font-weight:bold'">
+    <tbody>
+    <tr th:each="account : ${accountList}" th:style="${account.king} ? 'color:darkgoldenrod; font-weight:bold'">
         <td th:text="${accountStat.count}"></td>
         <td th:text="${account.king} ? 'YES' : 'NO'"></td>
         <td th:text="${account.name}"></td>

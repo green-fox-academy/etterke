@@ -3,9 +3,7 @@ package com.greenfoxacademy.bankofsimba.bankofsimba.Controllers;
 import com.greenfoxacademy.bankofsimba.bankofsimba.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,37 +26,37 @@ public class AccountController {
     accountList.add(new BankAccount("Nala", 280, "lion", false, true));
   }
 
-  @RequestMapping("/show")
+  @GetMapping("/show")
   public String showAccount(Model model) {
     model.addAttribute("bankAccount", firstAccount);
     return "account";
   }
 
-  @RequestMapping("/showAllAccounts")
+  @GetMapping("/showAllAccounts")
   public String showAllAccounts(Model model) {
     model.addAttribute("accountList", accountList);
     return "accountList";
   }
 
-  @RequestMapping("/showAllAccounts/whoIsTheKing")
+  @GetMapping("/showAllAccounts/whoIsTheKing")
   public String showAllAccountsWithKing(Model model) {
     model.addAttribute("accountList", accountList);
     return "accountListWithKing";
   }
 
-  @RequestMapping("/showAllAccounts/whoIsTheKing/andTheGoodGuys")
+  @GetMapping("/showAllAccounts/whoIsTheKing/andTheGoodGuys")
   public String showAllAccountsWithKingAndGoodGuys(Model model) {
     model.addAttribute("accountList", accountList);
     return "accountListWithKingAndGoodGuys";
   }
 
-  @RequestMapping(value = "raiseMoney", method = RequestMethod.GET)
+  @GetMapping("/raiseMoney")
   public String raiseMoneyForm(Model model) {
     model.addAttribute("accountList", accountList);
     return "raiseMoney";
   }
 
-  @RequestMapping(value = "raiseMoney", method = RequestMethod.POST)
+  @PostMapping("/raiseMoney")
   public String raiseMoney(@ModelAttribute (value="animal-name") String name){
 
     for (BankAccount account : accountList) {
@@ -73,4 +71,6 @@ public class AccountController {
 
     return "redirect:/showAllAccounts/whoIsTheKing/andTheGoodGuys";
   }
+
+
 }
