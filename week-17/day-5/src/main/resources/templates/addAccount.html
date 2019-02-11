@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accounts at Bank of Simba</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="/accountStyle.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+</head>
+<body>
+<form action="addAccount" method="post" class="add-account">
+    <input type="text" name="name" placeholder="Name of Account holder"/>
+    <select id="isKing" name="king" placeholder="Is this animal King?">
+        <option value="true">YES</option>
+        <option value="false">NO</option>
+    </select>
+    <input type="text" name="animalType" placeholder="Animal type"/>
+    <select id="goodGuy" name="goodGuy" placeholder="Is this animal a good or bad guy?">
+        <option value="true">GOOD</option>
+        <option value="false">BAD</option>
+    </select>
+    <input type="text" name="balance" placeholder="Starting balance"/>
+    <input type="submit" name="Add Account"/>
+</form>
+</body>
+</html>

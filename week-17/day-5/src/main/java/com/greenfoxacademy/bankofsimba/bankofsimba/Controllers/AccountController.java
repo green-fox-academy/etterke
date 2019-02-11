@@ -72,5 +72,15 @@ public class AccountController {
     return "redirect:/showAllAccounts/whoIsTheKing/andTheGoodGuys";
   }
 
+  @GetMapping("/addAccount")
+  public String addAccountForm() {
+    return "addAccount";
+  }
+
+  @PostMapping("/addAccount")
+  public String addAccount(BankAccount account) {
+    accountList.add(account);
+    return "redirect:/showAllAccounts/whoIsTheKing/andTheGoodGuys";
+  }
 
 }
