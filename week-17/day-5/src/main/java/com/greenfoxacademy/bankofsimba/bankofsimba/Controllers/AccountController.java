@@ -68,7 +68,6 @@ public class AccountController {
         }
       }
     }
-
     return "redirect:/showAllAccounts/whoIsTheKing/andTheGoodGuys";
   }
 
