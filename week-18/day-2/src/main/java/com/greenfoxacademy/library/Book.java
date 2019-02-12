@@ -1,14 +1,18 @@
 package com.greenfoxacademy.library;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Book {
+
+  private static final AtomicInteger count = new AtomicInteger(0);
 
   private int id;
   private String title;
   private String author;
   private int releaseYear;
 
-  public Book(int id, String title, String author, int releaseYear) {
-    this.id = id;
+  public Book(String title, String author, int releaseYear) {
+    this.id = count.incrementAndGet();
     this.title = title;
     this.author = author;
     this.releaseYear = releaseYear;
