@@ -48,12 +48,12 @@ public class BookController {
   }
 
   @GetMapping("/queriedBooks")
-  public String queriedBooks(Model model, @RequestParam (name="author") String author){
+  public String queriedBooks(Model model, @RequestParam (name="author", required = false) String author){
     List<Book> queriedBooks = new ArrayList<>();
 
     if (author != null){
       for (Book book : books) {
-        if (book.getAuthor().toLowerCase().equalsIgnoreCase(author)){
+        if (book.getAuthor().toLowerCase().contains(author.toLowerCase())){
           queriedBooks.add(book);
         }
       }
@@ -61,8 +61,6 @@ public class BookController {
     } else {
       model.addAttribute("books", books);
     }
-
-    model.addAttribute("books", queriedBooks);
     return "index";
   }
 
@@ -74,7 +72,7 @@ public class BookController {
   @PostMapping("/add")
   public String addBook(Book book) {
     books.add(book);
-    return "redirect:/books";
+    return "redirect:/queriedBooks";
   }
 
 }

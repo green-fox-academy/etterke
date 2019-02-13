@@ -5,9 +5,15 @@
     <title>List of Books</title>
 </head>
 <body>
+<form>
+    <input type="text" name="author" placeholder="Search by author"/>
+    <input type="submit" value="GO!"/>
+</form>
 <div th:each="book : ${books}">
     <h1 th:text="${book.id} + ' - ' + ${book.title} + ' - ' + ${book.author} + ' - ' + ${book.releaseYear}"></h1>
 </div>
-
+<div>
+    <span>To add another book, <a href="/add"> click here!</a> </span>
+</div>
 </body>
 </html>
