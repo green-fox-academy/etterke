@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -21,11 +22,11 @@ public class BookController {
     books.add(new Book ("Breakfast of Champions", "Kurt Vonnegut", 1973));
   }
 
-//  @GetMapping("/books")
-//  public String listBooks(Model model){
-//    model.addAttribute("books", books);
-//    return "index";
-//  }
+  @GetMapping("/books")
+  public String listBooks(Model model){
+    model.addAttribute("books", books);
+    return "index";
+  }
 
   @GetMapping("/books/{id}/details")
   public String getBookById(Model model, @PathVariable (name="id") int id){
@@ -46,23 +47,34 @@ public class BookController {
     return "details";
   }
 
-  @GetMapping("/books")
+  @GetMapping("/queriedBooks")
   public String queriedBooks(Model model, @RequestParam (name="author") String author){
-    List<Book> queriedBooks;
+    List<Book> queriedBooks = new ArrayList<>();
 
     if (author != null){
-      queriedBooks = filterBooksByAuthor(author);
+      for (Book book : books) {
+        if (book.getAuthor().toLowerCase().equalsIgnoreCase(author)){
+          queriedBooks.add(book);
+        }
+      }
+      model.addAttribute("books", queriedBooks);
     } else {
-      queriedBooks = books;
+      model.addAttribute("books", books);
     }
 
     model.addAttribute("books", queriedBooks);
     return "index";
   }
 
-  private List<Book> filterBooksByAuthor(String author) {
-    return books.stream()
-        .filter(book -> book.getAuthor().equals(author))
-        .collect(Collectors.toList());
+  @GetMapping("/add")
+  public String addNewBookForm(){
+    return "add";
   }
+
+  @PostMapping("/add")
+  public String addBook(Book book) {
+    books.add(book);
+    return "redirect:/books";
+  }
+
 }
