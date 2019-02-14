@@ -8,12 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ColoringaroundApplication implements CommandLineRunner {
 
-  private Printer printer;
-
   @Autowired
-  ColoringaroundApplication(Printer printer){
-    this.printer = printer;
-  }
+  private Printer printer;
 
   public static void main(String[] args) {
     SpringApplication.run(ColoringaroundApplication.class, args);
