@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Text encoding</title>
+</head>
+<body>
+<div>
+    <h1>Please enter a text and a number in the url using the following format: http://localhost:8080/useful/text/1/encoding</h1>
+</div>
+<span th:if="${error}" th:text="${error}"></span>
+<div  th:unless="${error}">
+    <p th:text="${encode}"></p>
+</div>
+<div>
+    <a href="/useful">Go back to homepage</a>
+</div>
+</body>
+</html>
