@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of students</title>
+</head>
+<body>
+<div>
+    <h1>Welcome to the GreenFox Class App</h1>
+</div>
+<div>
+    <h2>Find the list of students below</h2>
+</div>
+<div th:each="student : ${studentList}">
+    <p th:text="${student}"></p>
+</div>
+<div>
+    <a href="/gfa">Go back to the homepage</a>
+</div>
+</body>
+</html>
