@@ -42,7 +42,12 @@ public class ApplicationController {
 
   @GetMapping("gfa/check")
   public String checkStudentForm(Model model, @ModelAttribute(name="name") String name){
+
+    if (!name.equals("")) {
       model.addAttribute("checkName", studentList.check(name));
+    } else {
+      model.addAttribute("error", "Please type a name!");
+    }
     return "check";
   }
 
