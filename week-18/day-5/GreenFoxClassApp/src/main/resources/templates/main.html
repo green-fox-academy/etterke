@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Main page</title>
@@ -8,12 +8,21 @@
 <div>
     <h1>Welcome to the GreenFox Class App</h1>
 </div>
+
+<div>
+    <h2 th:text="'The number of students is currently: ' + ${studentCount}"></h2>
+</div>
+
 <div>
     <h2>Find below the links to the features</h2>
 </div>
     <p>To see the list of all the students <a href="/gfa/list">click here!</a></p>
-</body>
 </div>
+<div>
     <p>To add a student <a href="/gfa/add">click here!</a></p>
+</div>
+<div>
+    <p>To check is a student is in the list <a href="/gfa/check">click here!</a></p>
+</div>
 </body>
 </html>

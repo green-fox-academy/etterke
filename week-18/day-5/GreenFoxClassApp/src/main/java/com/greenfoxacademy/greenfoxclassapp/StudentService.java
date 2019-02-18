@@ -23,4 +23,19 @@ public class StudentService {
   public void save(String student) {
     names.add(student);
   }
+
+  public int count(){
+    return names.size();
+  }
+
+  public String check(String name){
+    String studentName = null;
+
+    for (String student : names) {
+      if (student.equalsIgnoreCase(name)) {
+        studentName = student;
+      }
+    }
+    return studentName;
+  }
 }

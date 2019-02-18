@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Looking for a student?</title>
+</head>
+<body>
+<div>
+    <h2>Use the search form below to find a student by name</h2>
+</div>
+<div>
+    <form action="/gfa/check" method="get">
+        <input type="text" name="name" placeholder="Student name" required/>
+        <input type="submit" name="submit" value="Find"/>
+    </form>
+</div>
+<span th:if="${error}" th:text="${error}"></span>
+<div  th:unless="${error}">
+    <p th:text="${checkName} ? 'The student is in the list!' : 'The student is NOT in the list!'"></p>
+</div>
+<div>
+    <a href="/gfa">Go back to the homepage</a>
+</div>
+</body>
+</html>
