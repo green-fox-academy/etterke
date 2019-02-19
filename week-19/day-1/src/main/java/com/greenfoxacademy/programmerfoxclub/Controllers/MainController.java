@@ -2,6 +2,7 @@ package com.greenfoxacademy.programmerfoxclub.Controllers;
 
 import com.greenfoxacademy.programmerfoxclub.Models.Fox;
 import com.greenfoxacademy.programmerfoxclub.Models.FoxMap;
+import com.greenfoxacademy.programmerfoxclub.Models.Nutrition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

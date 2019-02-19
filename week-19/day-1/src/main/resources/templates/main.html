@@ -7,14 +7,15 @@
 <body>
 <div>
     <ul>
-        <li>Information</li>
+        <li><a href="/information">Information</a></li>
+        <li><a href="/nutritionstore">Nutrition Store</a></li>
     </ul>
 </div>
 <div>
     <img src="/greenfox.png">
 </div>
 <div th:object="${fox}">
-    <p th:text="'This is Mr. ' + *{getName()} + '. Currently living on ' + *{getFood()} + ' and ' + *{getDrink()} + '. He knows ' + *{countTricks()} + ' tricks.'"></p>
+    <p th:text="'This is Mr. ' + *{getName()} + '. Currently living on pizza and water. He knows ' + *{countTricks()} + ' tricks.'"></p>
 </div>
 <div>
     <h1>Known tricks</h1>
