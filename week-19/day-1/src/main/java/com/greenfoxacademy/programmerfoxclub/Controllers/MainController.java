@@ -1,8 +1,7 @@
 package com.greenfoxacademy.programmerfoxclub.Controllers;
 
 import com.greenfoxacademy.programmerfoxclub.Models.Fox;
-import com.greenfoxacademy.programmerfoxclub.Models.FoxMap;
-import com.greenfoxacademy.programmerfoxclub.Models.Nutrition;
+import com.greenfoxacademy.programmerfoxclub.Services.FoxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
 
   @Autowired
-  FoxMap foxes;
+  FoxService foxes;
 
   @GetMapping("/login")
   public String showLoginForm() {
@@ -28,13 +27,10 @@ public class MainController {
   }
 
   @GetMapping("/information")
-  public String showMainPage(Model model, Fox fox) {
-    model.addAttribute("fox", foxes.findFoxByName(fox.getName()));
-    if(fox.countTricks() == 0){
-      model.addAttribute("noTricks", "You know no tricks, yet. Go and learn some.");
-    } else {
-      model.addAttribute("tricks", fox.getTricks());
-    }
+  public String showMainPage(Model model, @RequestParam (name="name") String name) {
+    Fox fox = foxes.findFoxByName(name);
+    model.addAttribute("fox", fox);
     return "main";
   }
+
 }

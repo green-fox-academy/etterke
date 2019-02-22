@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Nutrition Store</title>
+    <title>Trick Center</title>
 </head>
 <body>
 <div>
@@ -13,14 +13,10 @@
     </ul>
 </div>
 <div>
-    <form th:action="'/nutritionstore/?name=' + ${fox.getName()}" method="post">
-        <label for="food">Food</label>
-        <select name="food" id="food">
-            <option th:each="food : ${foods}" th:value="${food}" th:text="${food}"></option>
-        </select>
-        <label for="drink">Drink</label>
-        <select name="drink" id="drink">
-            <option th:each="drink : ${drinks}" th:value="${drink}" th:text="${drink}"></option>
+    <form th:action="'/trickcenter/?name=' + ${fox.getName()}" method="post">
+        <label for="trick">Trick</label>
+        <select name="trick" id="trick">
+            <option th:each="trick : ${tricks}" th:value="${trick}" th:text="${trick}"></option>
         </select>
         <input type="submit" value="Change" name="submit"/>
     </form>

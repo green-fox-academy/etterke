@@ -1,15 +1,16 @@
-package com.greenfoxacademy.programmerfoxclub.Models;
+package com.greenfoxacademy.programmerfoxclub.Services;
 
+import com.greenfoxacademy.programmerfoxclub.Models.Fox;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 
 @Service
-public class FoxMap {
+public class FoxService {
 
   private HashMap<String, Fox> foxes;
 
-  public FoxMap() {
+  public FoxService() {
     this.foxes = new HashMap<>();
   }
 
@@ -28,6 +29,17 @@ public class FoxMap {
     } else {
       addFox(name, fox);
     }
+  }
+
+  public void feedTheFox(String name, String food, String drink){
+    Fox fox = findFoxByName(name);
+    fox.setFood(food);
+    fox.setDrink(drink);
+  }
+
+  public void teachTheFox(String name, String trick){
+    Fox fox = findFoxByName(name);
+    fox.getTricksLearned().add(trick);
   }
 
   public HashMap<String, Fox> getFoxes() {

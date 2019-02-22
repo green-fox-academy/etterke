@@ -1,42 +1,52 @@
 package com.greenfoxacademy.programmerfoxclub.Controllers;
 
-import com.greenfoxacademy.programmerfoxclub.Models.Nutrition;
+import com.greenfoxacademy.programmerfoxclub.Services.FoxService;
+import com.greenfoxacademy.programmerfoxclub.Services.Nutrition;
+import com.greenfoxacademy.programmerfoxclub.Services.TrickService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class FoxController {
 
-  Nutrition nutrition = new Nutrition();
+  @Autowired
+  Nutrition nutrition;
+  @Autowired
+  FoxService foxes;
+  @Autowired
+  TrickService tricks;
+
 
   @GetMapping("/nutritionstore")
-  public String showNutritionStoreForm(Model model){
-    nutrition.getFoods().add("pizza");
-    nutrition.getFoods().add("salad");
-    nutrition.getFoods().add("hummus");
-    nutrition.getFoods().add("cheese");
-    nutrition.getFoods().add("ramen");
-    nutrition.getFoods().add("sushi");
-
-    nutrition.getDrinks().add("lemonade");
-    nutrition.getDrinks().add("cola");
-    nutrition.getDrinks().add("water");
-    nutrition.getDrinks().add("wine");
-    nutrition.getDrinks().add("coffee");
-    nutrition.getDrinks().add("tea");
-
+  public String showNutritionStoreForm(Model model, @RequestParam (name="name") String name){
+    model.addAttribute("fox", foxes.findFoxByName(name));
     model.addAttribute("foods", nutrition.getFoods());
     model.addAttribute("drinks", nutrition.getDrinks());
-
     return "nutritionstore";
   }
 
   @PostMapping("/nutritionstore")
-  public String nutritionStore(Nutrition nutrition){
-    nutrition.add(nutrition);
-    return "rediredt:/information";
+  public String nutritionStore(@RequestParam(name="name") String name, @ModelAttribute(name = "food") String food, @ModelAttribute(name = "drink") String drink){
+    foxes.feedTheFox(name, food, drink);
+    return "redirect:/information/?name=" + name;
+  }
+
+  @GetMapping("/trickcenter")
+  public String showTrickCenter(Model model, @RequestParam (name="name") String name){
+    model.addAttribute("fox", foxes.findFoxByName(name));
+    model.addAttribute("tricks", tricks.getTricks());
+    return "trickcenter";
+  }
+
+  @PostMapping("/trickcenter")
+  public String trickCenter(@RequestParam(name="name") String name, @ModelAttribute(name = "trick") String trick){
+    foxes.teachTheFox(name, trick);
+    return "redirect:/information/?name=" + name;
   }
 
 }
