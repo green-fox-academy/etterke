@@ -12,6 +12,7 @@
         <li><a th:href="'/trickcenter?name=' + ${fox.getName()}">Trick Center</a></li>
     </ul>
 </div>
+<h2>Select something from the menu for your fox to eat</h2>
 <div>
     <form th:action="'/nutritionstore/?name=' + ${fox.getName()}" method="post">
         <label for="food">Food</label>
@@ -23,6 +24,16 @@
             <option th:each="drink : ${drinks}" th:value="${drink}" th:text="${drink}"></option>
         </select>
         <input type="submit" value="Change" name="submit"/>
+    </form>
+</div>
+<h2>OR Add a new meal</h2>
+<div>
+    <form th:action="'/nutritionstore/?name=' + ${fox.getName()}" method="post">
+        <label for="addfood">Add a new food</label>
+        <input type="text" id="addfood" name="food"/>
+        <label for="adddrink">Add a new drink</label>
+        <input type="text" id="adddrink" name="drink"/>
+        <input type="submit" value="Add" name="submit"/>
     </form>
 </div>
 </body>

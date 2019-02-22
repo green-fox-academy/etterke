@@ -1,7 +1,7 @@
 package com.greenfoxacademy.programmerfoxclub.Controllers;
 
 import com.greenfoxacademy.programmerfoxclub.Services.FoxService;
-import com.greenfoxacademy.programmerfoxclub.Services.Nutrition;
+import com.greenfoxacademy.programmerfoxclub.Services.NutritionService;
 import com.greenfoxacademy.programmerfoxclub.Services.TrickService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class FoxController {
 
   @Autowired
-  Nutrition nutrition;
+  NutritionService nutrition;
   @Autowired
   FoxService foxes;
   @Autowired

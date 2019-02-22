@@ -7,17 +7,17 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class Nutrition {
+public class NutritionService {
 
   private List<String> foods;
   private List<String> drinks;
 
-  public Nutrition() {
+  public NutritionService() {
     this.foods = new ArrayList<>(Arrays.asList("pizza", "salad", "hummus", "cheese", "ramen", "sushi"));
     this.drinks = new ArrayList<>(Arrays.asList("lemonade", "cola", "water", "wine", "coffee", "tea"));
   }
 
-  public void add(Nutrition nutrition){
+  public void add(NutritionService nutrition){
     nutrition.add(nutrition);
   }
 

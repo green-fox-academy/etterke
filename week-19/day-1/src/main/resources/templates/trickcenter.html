@@ -12,6 +12,7 @@
         <li><a th:href="'/trickcenter?name=' + ${fox.getName()}">Trick Center</a></li>
     </ul>
 </div>
+<h2>Pick a trick to teach your fox from the menu below</h2>
 <div>
     <form th:action="'/trickcenter/?name=' + ${fox.getName()}" method="post">
         <label for="trick">Trick</label>
@@ -19,6 +20,14 @@
             <option th:each="trick : ${tricks}" th:value="${trick}" th:text="${trick}"></option>
         </select>
         <input type="submit" value="Change" name="submit"/>
+    </form>
+</div>
+<h2>OR Add a new trick</h2>
+<div>
+    <form th:action="'/trickcenter/?name=' + ${fox.getName()}" method="post">
+        <label for="addtrick">Add a new trick</label>
+        <input type="text" id="addtrick" name="trick"/>
+        <input type="submit" value="Add" name="submit"/>
     </form>
 </div>
 </body>

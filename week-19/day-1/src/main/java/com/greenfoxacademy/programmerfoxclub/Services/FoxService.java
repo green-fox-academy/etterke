@@ -39,7 +39,9 @@ public class FoxService {
 
   public void teachTheFox(String name, String trick){
     Fox fox = findFoxByName(name);
-    fox.getTricksLearned().add(trick);
+    if(!fox.getTricksLearned().contains(trick)){
+      fox.getTricksLearned().add(trick);
+    }
   }
 
   public HashMap<String, Fox> getFoxes() {
