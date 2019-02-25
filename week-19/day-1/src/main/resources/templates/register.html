@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Information</title>
@@ -8,10 +8,21 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/foxclub.css"/>
 </head>
 <body>
+<div class="menu">
+    <ul class="menu-bar">
+        <li class="menu-item">Programmer Fox Club</li>
+        <li class="menu-item"><a href="/main">Main Page</a></li>
+        <li class="menu-item"><a th:href="'/information'">Information</a></li>
+        <li class="menu-item"><a th:href="'/nutritionstore'">Nutrition Store</a></li>
+        <li class="menu-item"><a th:href="'/trickcenter'">Trick Center</a></li>
+    </ul>
+</div>
 <div>
     <p>Please provide a name to register your pet!</p>
 </div>
 <div>
+    <span th:if="${error}" th:text="${error}"></span>
+    <span th:unless="${error}"></span>
     <form action="/register" method="post">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required/>

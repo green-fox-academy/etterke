@@ -1,11 +1,8 @@
 body {
-    background-image: url(/images/IMG_5640.JPG);
-    background-repeat: repeat;
-    background-color: #cccccc;
-    background-attachment: fixed;
-    background-position: center left;
     font-family: 'Amatic SC', cursive;
     font-size: x-large;
+    font-weight: bold;
+    text-shadow: 1px 1px white;
 }
 
 .menu-bar {
@@ -38,8 +35,15 @@ body {
     background-color: sandybrown;
 }
 
-h1, h2, p {
-   text-align: center;
+.main-page {
+    background-color: bisque;
+    width: 50%;
+    margin: auto;
+}
+
+h1, h2, h3, p {
+    margin: 50px 200px 50px 200px;
+    text-align: center;
 }
 
 .fox-info {

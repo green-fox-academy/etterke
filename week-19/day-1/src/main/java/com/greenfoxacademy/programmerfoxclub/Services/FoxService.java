@@ -23,12 +23,12 @@ public class FoxService {
     return fox;
   }
 
-  public void loginAFox(Fox fox, String name) {
-    if (foxes.containsKey(name)) {
-      findFoxByName(name);
-    } else {
-      addFox(name, fox);
-    }
+  public boolean checkIfFoxExists(String name) {
+    return foxes.containsKey(name);
+  }
+
+  public void registerAFox(Fox fox, String name) {
+    addFox(name, fox);
   }
 
   public void feedTheFox(String name, String food, String drink){

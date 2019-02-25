@@ -23,7 +23,7 @@ public class FoxController {
 
 
   @GetMapping("/nutritionstore")
-  public String showNutritionStoreForm(Model model, @RequestParam (name="name") String name){
+  public String renderNutritionStoreForm(Model model, @RequestParam (name="name") String name){
     model.addAttribute("fox", foxes.findFoxByName(name));
     model.addAttribute("foods", nutrition.getFoods());
     model.addAttribute("drinks", nutrition.getDrinks());
@@ -31,20 +31,23 @@ public class FoxController {
   }
 
   @PostMapping("/nutritionstore")
-  public String nutritionStore(@RequestParam(name="name") String name, @ModelAttribute(name = "food") String food, @ModelAttribute(name = "drink") String drink){
+  public String nutritionStore(@RequestParam(name="name") String name,
+                               @ModelAttribute(name = "food") String food,
+                               @ModelAttribute(name = "drink") String drink){
     foxes.feedTheFox(name, food, drink);
     return "redirect:/information/?name=" + name;
   }
 
   @GetMapping("/trickcenter")
-  public String showTrickCenter(Model model, @RequestParam (name="name") String name){
+  public String renderTrickCenter(Model model, @RequestParam (name="name") String name){
     model.addAttribute("fox", foxes.findFoxByName(name));
     model.addAttribute("tricks", tricks.getTricks());
     return "trickcenter";
   }
 
   @PostMapping("/trickcenter")
-  public String trickCenter(@RequestParam(name="name") String name, @ModelAttribute(name = "trick") String trick){
+  public String trickCenter(@RequestParam(name="name") String name,
+                            @ModelAttribute(name = "trick") String trick){
     foxes.teachTheFox(name, trick);
     return "redirect:/information/?name=" + name;
   }

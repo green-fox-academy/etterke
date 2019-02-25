@@ -16,34 +16,44 @@ public class MainController {
   FoxService foxes;
 
   @GetMapping("/main")
-  public String showMainPage() {
+  public String renderMainPage() {
     return "main";
   }
 
   @GetMapping("/login")
-  public String showLoginForm() {
+  public String renderLoginForm() {
     return "login";
   }
 
   @PostMapping("/login")
-  public String loginFoxForm(@RequestParam (name="name") String name) {
-    foxes.findFoxByName(name);
+  public String loginFoxForm(Model model, @RequestParam (name="name") String name) {
+    if(!foxes.checkIfFoxExists(name)) {
+      model.addAttribute("error", "This fox has not been registered yet. Please go back to the main page and register first.");
+      return "login";
+    } else {
+      foxes.findFoxByName(name);
+    }
     return "redirect:/information/?name=" + name;
   }
 
   @GetMapping("/register")
-  public String showRegisterForm() {
+  public String renderRegisterForm() {
     return "register";
   }
 
   @PostMapping("/register")
-  public String registerFoxForm(Fox fox, @RequestParam (name="name") String name) {
-    foxes.loginAFox(fox, name);
+  public String registerFoxForm(Model model, Fox fox, @RequestParam (name="name") String name) {
+    if(foxes.checkIfFoxExists(name)){
+      model.addAttribute("error", "This fox has already been registered. Please go back to the main page and log in.");
+      return "register";
+    } else {
+      foxes.registerAFox(fox, name);
+    }
     return "redirect:/information/?name=" + name;
   }
 
   @GetMapping("/information")
-  public String showInformationPage(Model model, @RequestParam (name="name") String name) {
+  public String renderInformationPage(Model model, @RequestParam (name="name") String name) {
     Fox fox = foxes.findFoxByName(name);
     model.addAttribute("fox", fox);
     return "information";
