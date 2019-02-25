@@ -20,18 +20,24 @@ public class MainController {
     return "main";
   }
 
-  @PostMapping("/main")
-  public String directToLoginForm() {
-    return "redirect:/login";
-  }
-
   @GetMapping("/login")
   public String showLoginForm() {
     return "login";
   }
 
   @PostMapping("/login")
-  public String loginForm(Fox fox, @RequestParam (name="name") String name) {
+  public String loginFoxForm(@RequestParam (name="name") String name) {
+    foxes.findFoxByName(name);
+    return "redirect:/information/?name=" + name;
+  }
+
+  @GetMapping("/register")
+  public String showRegisterForm() {
+    return "register";
+  }
+
+  @PostMapping("/register")
+  public String registerFoxForm(Fox fox, @RequestParam (name="name") String name) {
     foxes.loginAFox(fox, name);
     return "redirect:/information/?name=" + name;
   }

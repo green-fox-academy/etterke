@@ -2,9 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Main Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <title>Information</title>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/foxclub.css"/>
 </head>
 <body>
@@ -15,17 +15,13 @@
     <h2>Do you already have an account?</h2>
 </div>
 <div>
-    <form action="/main" method="post">
-        <input type="submit" value="Log In" name="login"/>
-    </form>
+   <h3><a href="/login">Log In</a></h3>
 </div>
 <div>
     <h2>otherwise</h2>
 </div>
 <div>
-    <form action="/main" method="post">
-        <input type="submit" value="Register" name="register"/>
-    </form>
+    <h3><a href="/register">Register</a></h3>
 </div>
 </body>
 </html>

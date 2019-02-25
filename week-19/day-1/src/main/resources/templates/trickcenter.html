@@ -2,15 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Trick Center</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="/foxclub.css"/>
+    <title>Information</title>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/foxclub.css"/>
 </head>
 <body>
 <div class="menu">
     <ul class="menu-bar">
         <li class="menu-item">Programmer Fox Club</li>
+        <li class="menu-item"><a href="/main">Main Page</a></li>
         <li class="menu-item"><a th:href="'/information/?name=' + ${fox.getName()}">Information</a></li>
         <li class="menu-item"><a th:href="'/nutritionstore?name=' + ${fox.getName()}">Nutrition Store</a></li>
         <li class="menu-item"><a th:href="'/trickcenter?name=' + ${fox.getName()}">Trick Center</a></li>
