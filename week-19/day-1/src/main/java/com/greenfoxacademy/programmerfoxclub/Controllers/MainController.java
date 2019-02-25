@@ -15,6 +15,16 @@ public class MainController {
   @Autowired
   FoxService foxes;
 
+  @GetMapping("/main")
+  public String showMainPage() {
+    return "main";
+  }
+
+  @PostMapping("/main")
+  public String directToLoginForm() {
+    return "redirect:/login";
+  }
+
   @GetMapping("/login")
   public String showLoginForm() {
     return "login";
@@ -27,10 +37,10 @@ public class MainController {
   }
 
   @GetMapping("/information")
-  public String showMainPage(Model model, @RequestParam (name="name") String name) {
+  public String showInformationPage(Model model, @RequestParam (name="name") String name) {
     Fox fox = foxes.findFoxByName(name);
     model.addAttribute("fox", fox);
-    return "main";
+    return "information";
   }
 
 }

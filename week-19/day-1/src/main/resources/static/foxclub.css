@@ -1,0 +1,57 @@
+body {
+    background-image: url(/images/IMG_5640.JPG);
+    background-repeat: repeat;
+    background-color: #cccccc;
+    background-attachment: fixed;
+    background-position: center left;
+    font-family: 'Amatic SC', cursive;
+    font-size: x-large;
+}
+
+.menu-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid darkorange;
+    background-color: white;
+}
+
+.menu-item {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu-item a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu-item a:hover:not(.active) {
+    background-color: sandybrown;
+}
+
+.menu-item a.active {
+    color: white;
+    background-color: sandybrown;
+}
+
+h1, h2, p {
+   text-align: center;
+}
+
+.fox-info {
+    background-color: white;
+    text-align: center;
+}
+
+.trick-info {
+    background-color: white;
+    text-align: center;
+}
