@@ -1,0 +1,11 @@
+body {
+    font-family: 'Fredoka One', cursive;
+}
+
+.main-page {
+    background-color: rgb(163, 9, 71);
+    background-image: url("/images/github_octocat_main.png");
+    background-repeat: no-repeat;
+    background-size: 700px auto;
+    background-position: right top;
+}

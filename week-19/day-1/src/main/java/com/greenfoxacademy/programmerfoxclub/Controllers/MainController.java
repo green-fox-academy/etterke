@@ -2,6 +2,7 @@ package com.greenfoxacademy.programmerfoxclub.Controllers;
 
 import com.greenfoxacademy.programmerfoxclub.Models.Fox;
 import com.greenfoxacademy.programmerfoxclub.Services.FoxService;
+import com.greenfoxacademy.programmerfoxclub.Services.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,8 @@ public class MainController {
 
   @Autowired
   FoxService foxes;
+  @Autowired
+  ImageService images;
 
   @GetMapping("/main")
   public String renderMainPage() {
@@ -37,16 +40,18 @@ public class MainController {
   }
 
   @GetMapping("/register")
-  public String renderRegisterForm() {
+  public String renderRegisterForm(Model model) {
+    model.addAttribute("images", images.getImages());
     return "register";
   }
 
   @PostMapping("/register")
-  public String registerFoxForm(Model model, Fox fox, @RequestParam (name="name") String name) {
+  public String registerFoxForm(Model model, @RequestParam (name="name") String name, @RequestParam (name="image") String image) {
     if(foxes.checkIfFoxExists(name)){
       model.addAttribute("error", "This fox has already been registered. Please go back to the main page and log in.");
       return "register";
     } else {
+      Fox fox = new Fox(name, image);
       foxes.registerAFox(fox, name);
     }
     return "redirect:/information/?name=" + name;

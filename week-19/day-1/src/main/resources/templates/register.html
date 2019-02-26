@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Information</title>
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="/foxclub.css"/>
+    <link rel="stylesheet" href="/css/stylesheet.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 </head>
 <body>
 <div class="menu">
     <ul class="menu-bar">
-        <li class="menu-item">Programmer Fox Club</li>
+        <li class="menu-item">Programmer Octocat Club</li>
         <li class="menu-item"><a href="/main">Main Page</a></li>
         <li class="menu-item"><a th:href="'/information'">Information</a></li>
         <li class="menu-item"><a th:href="'/nutritionstore'">Nutrition Store</a></li>
@@ -18,7 +18,7 @@
     </ul>
 </div>
 <div>
-    <p>Please provide a name to register your pet!</p>
+    <h2>Please provide a name ...</h2>
 </div>
 <div>
     <span th:if="${error}" th:text="${error}"></span>
@@ -26,7 +26,28 @@
     <form action="/register" method="post">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required/>
-        <input type="submit" value="GO" name="submit"/>
+    <h2>... and a picture to associate with your pet!</h2>
+        <div th:each="image : ${images}">
+            <input type="radio" name="image" th:value="${image}"/>
+            <img th:src="${image}" style="height: auto; width: 200px"/>
+        </div>
+        <!--<label for="HP"><img src="/images/github_HP.png" style="width: auto; height:200px"/></label>-->
+        <!--<input type="radio" name="image" id="HP" value="/images/github_HP.png"/>-->
+        <!--<label for="minion"><img src="/images/github_minion.png" style="width: auto; height:200px"/></label>-->
+        <!--<input type="radio" name="image" id="minion" value="/images/github_minion.png"/>-->
+        <!--<label for="momtocat"><img src="/images/github_momtocat.png" style="width: auto; height:200px"/></label>-->
+        <!--<input type="radio" name="image" id="momtocat" value="/images/github_momtocat.png"/>-->
+        <!--<label for="rainbow"><img src="/images/github_rainbowpony.png" style="width: auto; height:200px"/></label>-->
+        <!--<input type="radio" name="image" id="rainbow" value="/images/github_rainbowpony.png"/>-->
+        <!--<label for="wet"><img src="/images/github_wet.png" style="width: auto; height:200px"/></label>-->
+        <!--<input type="radio" name="image" id="wet" value="/images/github_wet.png"/>-->
+        <!--<label for="stormtrooper"><img src="/images/github_stormtroopocat.png" style="width: auto; height:200px"/></label>-->
+        <!--<input type="radio" name="image" id="stormtrooper" value="/images/github_stormtroopocat.png"/>-->
+        <!--<label for="drink"><img src="/images/github_drink.png" style="width: auto; height:200px"/></label>-->
+        <!--<input type="radio" name="image" id="drink" value="/images/guthub_drink.png"/>-->
+        <!--<label for="murakami"><img src="/images/murakamicat.png" style="width: auto; height:200px"/></label>-->
+        <!--<input type="radio" name="image" id="murakami" value="/images/murakamicat.png"/>-->
+        <input type="submit" value="GO">
     </form>
 </div>
 </body>
