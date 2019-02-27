@@ -3,6 +3,7 @@ package com.greenfoxacademy.programmerfoxclub.Controllers;
 import com.greenfoxacademy.programmerfoxclub.Services.FoxService;
 import com.greenfoxacademy.programmerfoxclub.Services.NutritionService;
 import com.greenfoxacademy.programmerfoxclub.Services.TrickService;
+import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,6 +51,12 @@ public class FoxController {
                             @ModelAttribute(name = "trick") String trick){
     foxes.teachTheFox(name, trick);
     return "redirect:/information/?name=" + name;
+  }
+
+  @GetMapping("/actionhistory")
+  public String renderActionHistory(Model model, @RequestParam (name="name") String name){
+    model.addAttribute("fox", foxes.findFoxByName(name));
+    return "actionhistory";
   }
 
 }

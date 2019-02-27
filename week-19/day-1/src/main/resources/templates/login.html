@@ -19,12 +19,13 @@
                 <a href="/information">Information</a>
                 <a href="/nutritionstore">Nutrition Store</a>
                 <a href="/trickcenter">Trick Center</a>
+                <a href="/actionhistory">Action History</a>
             </div>
         </div>
     </nav>
 <div class="container">
     <div>
-        <p>Please provide a name so you can associate it with your pet!</p>
+        <h2>Please provide a name so you can associate it with your pet!</h2>
     </div>
     <div>
         <span th:if="${error}" th:text="${error}"></span>
@@ -35,7 +36,7 @@
                 <input type="text" id="name" name="name" class="form-control" required/>
             </div>
             <div>
-                <input type="submit" value="GO" name="submit" class="btn btn-warning"/>
+                <input type="submit" value="login" name="submit" class="btn btn-warning"/>
             </div>
         </form>
     </div>

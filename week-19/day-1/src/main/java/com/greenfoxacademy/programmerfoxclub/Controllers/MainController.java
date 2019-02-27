@@ -49,6 +49,7 @@ public class MainController {
   public String registerFoxForm(Model model, @RequestParam (name="name") String name, @RequestParam (name="image") String image) {
     if(foxes.checkIfFoxExists(name)){
       model.addAttribute("error", "This fox has already been registered. Please go back to the main page and log in.");
+      model.addAttribute("images", images.getImages());
       return "register";
     } else {
       Fox fox = new Fox(name, image);

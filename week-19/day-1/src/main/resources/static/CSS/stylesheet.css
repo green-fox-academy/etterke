@@ -1,9 +1,27 @@
 body {
+
     font-family: 'Fredoka One', cursive;
+    text-align: center;
+    background-color: indianred;
+}
+
+.main-page {
+    margin-top: 100px;
+    width:50%;
+}
+
+.container {
+    margin-top:15px;
+    width: 80%;
+}
+
+.btn {
+    background-color: #ffc107;
+    border: 1px solid #ffc107;
 }
 
 .btn-secondary {
     color: #fff;
-    background-color: white;
-    border-color: white;
+    background-color: indianred;
+    border-color: indianred;
 }

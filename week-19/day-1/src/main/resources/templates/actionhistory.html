@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Information</title>
+    <title>Action History</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" href="/css/stylesheet.css"/>
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
@@ -23,27 +23,5 @@
         </div>
     </div>
 </nav>
-<div class="container">
-    <div>
-        <img th:src="${fox.getImage()}" style="width: auto;height: 200px"/>
-    </div>
-    <div th:object="${fox}">
-        <p th:text="'This is ' + *{getName()} + '. Currently living on ' + *{getFood()} + ' and ' + *{getDrink()} + '. He knows ' + *{countTricksLearned()} + ' tricks.'"></p>
-    </div>
-    <div>
-        <h2>Known Tricks</h2>
-    </div>
-    <div>
-        <ul>
-            <span th:if="${fox.countTricksLearned() == 0}">You don't know any tricks, yet. Go and learn some!</span>
-            <span th:unless="${fox.countTricksLearned() == 0}">
-                <li th:each="trick : ${fox.getTricksLearned()}" th:text="${trick}"></li>
-            </span>
-        </ul>
-    </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
