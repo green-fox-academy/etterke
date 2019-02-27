@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/stylesheet.css"/>
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 </head>
-<body class="container">
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Programmers Octocat Club</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,45 +22,51 @@
             </div>
         </div>
 </nav>
-<h2>Select something from the menu for your fox to eat</h2>
-<div>
-    <form th:action="'/nutritionstore/?name=' + ${fox.getName()}" method="post">
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="food">Food</label>
-                <select name="food" id="food" class="form-control">
-                    <option th:each="food : ${foods}" th:value="${food}" th:text="${food}"></option>
-                </select>
+<div class="container">
+    <div>
+        <h2>Select something from the menu for your fox to eat</h2>
+    </div>
+    <div>
+        <form th:action="'/nutritionstore/?name=' + ${fox.getName()}" method="post">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="food">Food</label>
+                    <select name="food" id="food" class="form-control">
+                        <option th:each="food : ${foods}" th:value="${food}" th:text="${food}"></option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="drink">Drink</label>
+                    <select name="drink" id="drink" class="form-control">
+                        <option th:each="drink : ${drinks}" th:value="${drink}" th:text="${drink}"></option>
+                    </select>
+                </div>
+                <div>
+                    <input type="submit" value="Change" name="submit" class="btn btn-warning"/>
+                </div>
             </div>
-            <div class="form-group col-md-4">
-                <label for="drink">Drink</label>
-                <select name="drink" id="drink" class="form-control">
-                    <option th:each="drink : ${drinks}" th:value="${drink}" th:text="${drink}"></option>
-                </select>
+        </form>
+    </div>
+    <div>
+        <h2>OR Add a new meal</h2>
+    </div>
+    <div>
+        <form th:action="'/nutritionstore/?name=' + ${fox.getName()}" method="post">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="addfood">Add a new food</label>
+                    <input type="text" class="form-control" id="addfood" name="food"/>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="adddrink">Add a new drink</label>
+                    <input type="text" class="form-control" id="adddrink" name="drink"/>
+                </div>
+                <div>
+                    <input type="submit" value="Add" name="submit" class="btn btn-warning"/>
+                </div>
             </div>
-            <div>
-                <input type="submit" value="Change" name="submit" class="btn btn-warning"/>
-            </div>
-        </div>
-    </form>
-</div>
-<h2>OR Add a new meal</h2>
-<div>
-    <form th:action="'/nutritionstore/?name=' + ${fox.getName()}" method="post">
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="addfood">Add a new food</label>
-                <input type="text" class="form-control" id="addfood" name="food"/>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="adddrink">Add a new drink</label>
-                <input type="text" class="form-control" id="adddrink" name="drink"/>
-            </div>
-            <div>
-                <input type="submit" value="Add" name="submit" class="btn btn-warning"/>
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
