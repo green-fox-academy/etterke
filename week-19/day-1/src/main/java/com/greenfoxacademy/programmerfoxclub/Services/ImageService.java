@@ -26,7 +26,4 @@ public class ImageService {
     return images;
   }
 
-  public void setImages(List<String> images) {
-    this.images = images;
-  }
 }

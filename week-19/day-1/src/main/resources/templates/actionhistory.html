@@ -23,5 +23,15 @@
         </div>
     </div>
 </nav>
+<div>
+    <div>
+        <ul>
+            <span th:if="${fox.countActionHistory() == 0}">There is nothing to display yet. Go and feed or teach your fox!</span>
+            <span th:unless="${fox.countActionHistory() == 0}">
+                <li th:each="action : ${fox.getActionHistory()}" th:text="${action.actionTime} + ' : ' + ${action.actionDescription}"></li>
+            </span>
+        </ul>
+    </div>
+</div>
 </body>
 </html>

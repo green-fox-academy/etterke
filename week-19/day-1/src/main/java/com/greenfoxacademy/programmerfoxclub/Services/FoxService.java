@@ -1,8 +1,11 @@
 package com.greenfoxacademy.programmerfoxclub.Services;
 
+import com.greenfoxacademy.programmerfoxclub.Models.Action;
 import com.greenfoxacademy.programmerfoxclub.Models.Fox;
 import org.springframework.stereotype.Service;
 
+import java.time.Clock;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 
 @Service
@@ -35,6 +38,12 @@ public class FoxService {
     Fox fox = findFoxByName(name);
     fox.setFood(food);
     fox.setDrink(drink);
+
+    LocalDateTime feedTime = LocalDateTime.now(Clock.systemUTC());
+    String feedDescription = "Food has been changed to " + fox.getFood();
+
+    Action feedAction = new Action(feedTime, feedDescription);
+    fox.getActionHistory().add(feedAction);
   }
 
   public void teachTheFox(String name, String trick){
@@ -42,6 +51,12 @@ public class FoxService {
     if(!fox.getTricksLearned().contains(trick)){
       fox.getTricksLearned().add(trick);
     }
+
+    LocalDateTime teachingTime = LocalDateTime.now(Clock.systemUTC());
+    String teachDescription = "Learned to " + fox.getTricksLearned();
+
+    Action teachAction = new Action(teachingTime, teachDescription);
+    fox.getActionHistory().add(teachAction);
   }
 
   public HashMap<String, Fox> getFoxes() {

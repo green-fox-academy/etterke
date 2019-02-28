@@ -10,15 +10,21 @@ public class Fox {
   private String food;
   private String drink;
   private List<String> tricksLearned;
+  private List<Action> actionHistory;
 
   public Fox(String name, String image) {
     this.name = name;
     this.image = image;
     this.tricksLearned = new ArrayList<>();
+    this.actionHistory = new ArrayList<>();
   }
 
   public int countTricksLearned(){
     return tricksLearned.size();
+  }
+
+  public int countActionHistory() {
+    return actionHistory.size();
   }
 
   public String getName() {
@@ -27,10 +33,6 @@ public class Fox {
 
   public String getImage() {
     return image;
-  }
-
-  public void setImage(String image) {
-    this.image = image;
   }
 
   public String getFood() {
@@ -51,6 +53,10 @@ public class Fox {
 
   public List<String> getTricksLearned() {
     return tricksLearned;
+  }
+
+  public List<Action> getActionHistory() {
+    return actionHistory;
   }
 
 }
