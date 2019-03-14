@@ -17,6 +17,7 @@
                 <th>Title</th>
                 <th>Done</th>
                 <th>Urgent</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,11 @@
                 <td th:text="${todo.title}"></td>
                 <td th:text="${todo.done}"></td>
                 <td th:text="${todo.urgent}"></td>
+                <td>
+                    <form th:action="'/todo/' + ${todo.id} + '/delete'" method="post">
+                        <input type="submit" value="delete">
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>
