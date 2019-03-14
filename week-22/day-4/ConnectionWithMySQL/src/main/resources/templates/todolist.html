@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Todo CRUD App</title>
@@ -7,20 +7,24 @@
 <body>
 <h1>Todos for today:</h1>
 <div>
-    <ul>
-        <li>
-            Start the day
-        </li>
-        <li>
-            Finish H2 workshop1
-        </li>
-        <li>
-            Finish H2 workshop1
-        </li>
-        <li>
-            Create a CRUD project
-        </li>
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Done</th>
+                <th>Urgent</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="todo : ${todos}">
+                <td th:text="${todo.id}"></td>
+                <td th:text="${todo.title}"></td>
+                <td th:text="${todo.done}"></td>
+                <td th:text="${todo.urgent}"></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
