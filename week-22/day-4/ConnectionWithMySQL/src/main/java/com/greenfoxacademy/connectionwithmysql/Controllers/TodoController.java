@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -21,17 +22,23 @@ public class TodoController {
   @Autowired
   TodoService todoService;
 
-  @GetMapping("/list")
-  public String list(Model model) {
-    ArrayList<Todo> todos = todoService.findAllTodos();
-    model.addAttribute("todos", todos);
-    return "todolist";
-  }
-
   @GetMapping("/")
-  @ResponseBody
   public String list() {
     return "redirect:/todo/list";
+  }
+
+  @GetMapping("/list")
+  public String listWithActiveTodos(Model model, @RequestParam(required = false) boolean isActive) {
+    ArrayList<Todo> todos;
+
+    if (isActive){
+      todos = todoService.findUndoneTodos();
+    } else {
+      todos = todoService.findAllTodos();
+    }
+
+    model.addAttribute("todos", todos);
+    return "todolist";
   }
 
 }

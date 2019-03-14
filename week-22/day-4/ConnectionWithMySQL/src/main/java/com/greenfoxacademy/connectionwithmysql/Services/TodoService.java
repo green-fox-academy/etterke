@@ -18,4 +18,16 @@ public class TodoService {
     todoRep.findAll().forEach(todos::add);
     return todos;
   }
+
+  public ArrayList<Todo> findUndoneTodos(){
+    ArrayList<Todo> todos = findAllTodos();
+    ArrayList<Todo> undoneTodos = new ArrayList<>();
+
+    for (Todo todo : todos) {
+      if (!todo.isDone()) {
+        undoneTodos.add(todo);
+      }
+    }
+    return undoneTodos;
+  }
 }
