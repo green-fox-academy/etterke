@@ -30,4 +30,12 @@ public class TodoService {
     }
     return undoneTodos;
   }
+
+  public void saveNewTodo(Todo todo){
+    todoRep.save(todo);
+  }
+
+  public void deleteTodo(long id) {
+    todoRep.deleteById(id);
+  }
 }
