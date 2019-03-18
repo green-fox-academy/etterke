@@ -18,6 +18,7 @@
                 <th>Done</th>
                 <th>Urgent</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
                         <input type="submit" value="delete">
                     </form>
                 </td>
+                <td><a th:href="'/todo/' + ${todo.id} + '/edit'">edit</a></td>
             </tr>
         </tbody>
     </table>

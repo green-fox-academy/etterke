@@ -38,4 +38,9 @@ public class TodoService {
   public void deleteTodo(long id) {
     todoRep.deleteById(id);
   }
+
+  public Todo findById(long id) {
+    Todo todo = todoRep.findById(id).get();
+    return todo;
+  }
 }
