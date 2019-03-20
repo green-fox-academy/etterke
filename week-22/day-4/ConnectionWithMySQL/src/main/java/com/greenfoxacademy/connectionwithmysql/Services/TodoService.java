@@ -43,4 +43,9 @@ public class TodoService {
     Todo todo = todoRep.findById(id).get();
     return todo;
   }
+
+  public ArrayList<Todo> findByTitle(String title) {
+    ArrayList<Todo> todos = todoRep.findByTitleContaining(title);
+    return todos;
+  }
 }

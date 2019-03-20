@@ -5,12 +5,19 @@
     <title>Todo CRUD App</title>
 </head>
 <body>
-<h1>Todos for today:</h1>
+<h1>Todos for today</h1>
+<div>
+    <form action="/todo/list" method="post">
+        <label for="search">Search todos by title</label>
+        <input type="text" id="search" name="title" required/>
+        <input type="submit" value="Search"/>
+    </form>
+</div>
 <div>
     <a href="/todo/add">Add a new Todo</a>
 </div>
 <div>
-    <table>
+    <table th:border="1">
         <thead>
             <tr>
                 <th>ID</th>

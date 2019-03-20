@@ -27,13 +27,19 @@ public class TodoController {
   @GetMapping("/list")
   public String listWithActiveTodos(Model model, @RequestParam(required = false) boolean isActive) {
     ArrayList<Todo> todos;
-
     if (isActive){
       todos = todoService.findUndoneTodos();
     } else {
       todos = todoService.findAllTodos();
     }
+    model.addAttribute("todos", todos);
 
+    return "todolist";
+  }
+
+  @PostMapping("/list")
+  public String showTitleSearchResult(Model model, @ModelAttribute (value = "title") String title) {
+    ArrayList<Todo> todos = todoService.findByTitle(title);
     model.addAttribute("todos", todos);
     return "todolist";
   }

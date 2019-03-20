@@ -9,4 +9,6 @@ import java.util.ArrayList;
 @Repository
 public interface TodoRepository extends CrudRepository<Todo, Long> {
 
+  ArrayList<Todo> findByTitleContaining(String title);
+
 }
