@@ -56,10 +56,10 @@ public class AssigneeController {
   }
 
   @PostMapping("/{id}/edit")
-  public String editAssignee(@PathVariable long id, Model model) {
+  public String editAssignee(@PathVariable long id, @ModelAttribute (value = "name") String name) {
     Assignee assignee = assigneeService.findById(id);
+    assignee.setName(name);
     assigneeService.saveNewAssignee(assignee);
-    model.addAttribute("assignee", assignee);
     return "redirect:/assignee/list";
   }
 }

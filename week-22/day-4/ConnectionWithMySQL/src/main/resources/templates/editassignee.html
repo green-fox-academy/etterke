@@ -9,7 +9,7 @@
     <form th:action="'/assignee/' + ${assignee.id} + '/edit'" method="post">
         <h1>Edit Assignee</h1>
         <label for="description">Assignee Name</label>
-        <input type="text" id="description" th:field="${assignee.name}" required/>
+        <input type="text" id="description" name="name" required/>
         <input type="submit" value="Submit">
         <a href="/assignee/list">Cancel</a>
     </form>
