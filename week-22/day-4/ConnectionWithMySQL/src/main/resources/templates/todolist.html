@@ -7,16 +7,6 @@
 <body>
 <h1>Todos for today</h1>
 <div>
-    <form action="/todo/list" method="post">
-        <label for="search">Search todos by title</label>
-        <input type="text" id="search" name="title" required/>
-        <input type="submit" value="Search"/>
-    </form>
-</div>
-<div>
-    <a href="/todo/add">Add a new Todo</a>
-</div>
-<div>
     <table th:border="1">
         <thead>
             <tr>
@@ -24,6 +14,8 @@
                 <th>Title</th>
                 <th>Done</th>
                 <th>Urgent</th>
+                <th>Creation Date</th>
+                <th>Assignee</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -34,6 +26,8 @@
                 <td th:text="${todo.title}"></td>
                 <td th:text="${todo.done}"></td>
                 <td th:text="${todo.urgent}"></td>
+                <td th:text="${todo.creationDate}"></td>
+                <td th:text="${todo.assignee?.name}"></td>
                 <td>
                     <form th:action="'/todo/' + ${todo.id} + '/delete'" method="post">
                         <input type="submit" value="delete">
@@ -43,6 +37,19 @@
             </tr>
         </tbody>
     </table>
+</div>
+<div>
+    <a href="/todo/add">Add a new Todo</a>
+</div>
+<div>
+    <form action="/todo/list" method="post">
+        <label for="search">Search todos by title</label>
+        <input type="text" id="search" name="title" required/>
+        <input type="submit" value="Search"/>
+    </form>
+</div>
+<div>
+    <a href="/assignee/list">See the list of assignees here</a>
 </div>
 </body>
 </html>

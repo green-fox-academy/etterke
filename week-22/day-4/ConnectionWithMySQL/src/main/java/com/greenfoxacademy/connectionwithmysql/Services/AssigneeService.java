@@ -14,9 +14,9 @@ public class AssigneeService {
   AssigneeRepository assigneeRepo;
 
   public ArrayList<Assignee> findAllAssignees() {
-    ArrayList<Assignee> todos = new ArrayList<>();
-    assigneeRepo.findAll().forEach(todos::add);
-    return todos;
+    ArrayList<Assignee> assignees = new ArrayList<>();
+    assigneeRepo.findAll().forEach(assignees::add);
+    return assignees;
   }
 
   public void saveNewAssignee(Assignee assignee){

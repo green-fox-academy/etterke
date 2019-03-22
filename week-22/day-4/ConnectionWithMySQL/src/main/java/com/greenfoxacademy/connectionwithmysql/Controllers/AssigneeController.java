@@ -19,11 +19,6 @@ public class AssigneeController {
   @Autowired
   AssigneeService assigneeService;
 
-  @GetMapping()
-  public String renderAssigneeMainPage() {
-    return "assigneemain";
-  }
-
   @GetMapping("/list")
   public String renderAssigneeList(Model model) {
     ArrayList<Assignee> assignees = assigneeService.findAllAssignees();

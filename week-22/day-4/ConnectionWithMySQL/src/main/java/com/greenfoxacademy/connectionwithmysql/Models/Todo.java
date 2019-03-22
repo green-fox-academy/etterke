@@ -1,18 +1,19 @@
 package com.greenfoxacademy.connectionwithmysql.Models;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 public class Todo {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
+  private Long id;
   private String title;
   private boolean urgent = false;
   private boolean done = false;
+  private LocalDateTime creationDate = LocalDateTime.now();
   @ManyToOne
-  @JoinColumn(name = "Assignee", nullable = false)
   private Assignee assignee;
 
   public Todo() {
@@ -22,11 +23,11 @@ public class Todo {
     this.title = title;
   }
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -54,4 +55,19 @@ public class Todo {
     this.done = done;
   }
 
+  public LocalDateTime getCreationDate() {
+    return creationDate;
+  }
+
+  public void setCreationDate(LocalDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
+
+  public Assignee getAssignee() {
+    return assignee;
+  }
+
+  public void setAssignee(Assignee assignee) {
+    this.assignee = assignee;
+  }
 }
