@@ -23,7 +23,9 @@
         <tbody>
         <tr th:each="assignee : ${assignees}">
             <td th:text="${assignee.id}"></td>
-            <td th:text="${assignee.name}"></td>
+            <td>
+                <a th:href="'/assignee/' + ${assignee?.id} + '/details'" th:text="${assignee.name}"></a>
+            </td>
             <td th:text="${assignee.email}"></td>
             <td>
                 <form th:action="'/assignee/' + ${assignee.id} + '/delete'" method="post">

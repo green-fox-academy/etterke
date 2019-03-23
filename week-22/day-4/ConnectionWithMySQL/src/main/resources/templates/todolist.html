@@ -27,7 +27,9 @@
                 <td th:text="${todo.done}"></td>
                 <td th:text="${todo.urgent}"></td>
                 <td th:text="${todo.creationDate}"></td>
-                <td th:text="${todo.assignee?.name}"></td>
+                <td>
+                    <a th:href="'/assignee/' + ${todo.assignee?.id} + '/details'" th:text="${todo.assignee?.name}"></a>
+                </td>
                 <td>
                     <form th:action="'/todo/' + ${todo.id} + '/delete'" method="post">
                         <input type="submit" value="delete">
