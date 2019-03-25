@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Trending Posts</title>
+    <title>Add New Post</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" href="/css/stylesheet.css"/>
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
@@ -24,22 +24,12 @@
     </div>
 </nav>
 <div>
-    <a href="/trendingposts/addpost">Submit a new post</a>
-</div>
-<h1>
-    Trending posts
-</h1>
-<div>
-    <table th:border="1">
-        <tbody>
-        <tr th:each="post : ${posts}">
-            <td th:text="${post.score}"></td>
-            <td>+</td>
-            <td>-</td>
-            <td th:href="${post.url}" th:text="${post.title}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <form action="/trendingposts/addpost" method="post">
+        <h1>Submit a new post</h1>
+        <input type="text" name="title" required/>
+        <input type="url" name="url" required/>
+        <input type="submit" value="Submit"/>
+    </form>
 </div>
 </body>
 </html>

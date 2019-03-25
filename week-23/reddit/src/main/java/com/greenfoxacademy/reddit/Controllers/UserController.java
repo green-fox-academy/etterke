@@ -4,7 +4,6 @@ import com.greenfoxacademy.reddit.Models.User;
 import com.greenfoxacademy.reddit.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -31,15 +30,16 @@ public class UserController {
       User user = userService.findByName(name);
       return "redirect:/trendingposts/" + user.getId();
     }
+
   }
 
   @GetMapping("/register")
-  public String renderRegisterForm(Model model) {
+  public String renderRegisterUserForm() {
     return "register";
   }
 
   @PostMapping("/register")
-  public String registerFoxForm(@RequestParam(name = "name") String name, @ModelAttribute User user) {
+  public String registerUserForm(@RequestParam(name = "name") String name, @ModelAttribute User user) {
     if(userService.checkIfUserExistsByName(name)) {
       return "login";
     } else {
