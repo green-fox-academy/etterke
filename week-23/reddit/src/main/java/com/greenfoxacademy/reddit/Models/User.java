@@ -1,9 +1,7 @@
 package com.greenfoxacademy.reddit.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -13,6 +11,9 @@ public class User {
   private long id;
   private String name;
   private String password;
+  @OneToMany
+  @JoinColumn(name = "user_id")
+  private List<Post> posts;
 
   public User() {
   }

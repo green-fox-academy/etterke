@@ -1,9 +1,6 @@
 package com.greenfoxacademy.reddit.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Post {
@@ -14,6 +11,8 @@ public class Post {
   private String title;
   private String url;
   private int score;
+  @ManyToOne
+  private User user;
 
   public Post() {
   }

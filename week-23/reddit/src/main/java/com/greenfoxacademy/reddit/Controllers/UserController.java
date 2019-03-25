@@ -1,13 +1,17 @@
 package com.greenfoxacademy.reddit.Controllers;
 
+import com.greenfoxacademy.reddit.Models.User;
+import com.greenfoxacademy.reddit.Services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
+
+  @Autowired
+  UserService userService;
 
   @GetMapping("/")
   public String renderMainPage() {
@@ -20,9 +24,13 @@ public class UserController {
   }
 
   @PostMapping("/login")
-  public String loginFoxForm(Model model, @RequestParam(name="name") String name) {
-
-    return "redirect:/mainpage/?name=" + name;
+  public String loginFoxForm(@RequestParam(name = "name") String name) {
+    if(!userService.checkIfUserExistsByName(name)){
+      return "register";
+    } else {
+      User user = userService.findByName(name);
+      return "redirect:/trendingposts/" + user.getId();
+    }
   }
 
   @GetMapping("/register")
@@ -31,9 +39,13 @@ public class UserController {
   }
 
   @PostMapping("/register")
-  public String registerFoxForm(Model model, @RequestParam (name="name") String name) {
-
-    return "redirect:/mainpage/?name=" + name;
+  public String registerFoxForm(@RequestParam(name = "name") String name, @ModelAttribute User user) {
+    if(userService.checkIfUserExistsByName(name)) {
+      return "login";
+    } else {
+      userService.saveUser(user);
+      return "redirect:/trendingposts/" + user.getId();
+    }
   }
 
 }
