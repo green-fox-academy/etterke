@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 @Service
@@ -55,4 +56,14 @@ public class TodoService {
   public ArrayList<Todo> findTodosByAssignee(Assignee assignee) {
     return todoRep.findByAssignee(assignee);
   }
+
+//  public ArrayList<LocalDateTime> listAllDueDates() {
+//    ArrayList<Todo> todos = findAllTodos();
+//    ArrayList<LocalDateTime> duedates = new ArrayList<>();
+//    for (Todo todo : todos) {
+//      duedates.add(todo.getDueDate());
+//    }
+//    return duedates;
+//  }
 }
+

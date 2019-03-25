@@ -1,6 +1,5 @@
 package com.greenfoxacademy.connectionwithmysql.Controllers;
 
-import com.greenfoxacademy.connectionwithmysql.Models.Assignee;
 import com.greenfoxacademy.connectionwithmysql.Models.Todo;
 import com.greenfoxacademy.connectionwithmysql.Repositories.TodoRepository;
 import com.greenfoxacademy.connectionwithmysql.Services.AssigneeService;
@@ -37,8 +36,6 @@ public class TodoController {
       todos = todoService.findAllTodos();
     }
     model.addAttribute("todos", todos);
-    model.addAttribute("assignees",assigneeService.findAllAssignees());
-
     return "todolist";
   }
 

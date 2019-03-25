@@ -14,6 +14,8 @@
         <input type="checkbox" id="urgent" th:field="${todo.urgent}"/>
         <label for="done">Done</label>
         <input type="checkbox" id="done" th:field="${todo.done}"/>
+        <label for="dueDate">Due Date</label>
+        <input type="date" id="dueDate" th:field="${todo.dueDate}"/>
         <select th:field="${todo.assignee}">
             <option th:each="assignee : ${assignees}"
                     th:value="${assignee.id}"

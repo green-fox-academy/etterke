@@ -17,6 +17,7 @@
             <th>Done</th>
             <th>Urgent</th>
             <th>Creation Date</th>
+            <th>Due Date</th>
             <th></th>
             <th></th>
         </tr>
@@ -28,6 +29,7 @@
             <td th:text="${todo.done}"></td>
             <td th:text="${todo.urgent}"></td>
             <td th:text="${todo.creationDate}"></td>
+            <td th:text="${todo.dueDate}"></td>
             <td>
                 <form th:action="'/todo/' + ${todo.id} + '/delete'" method="post">
                     <input type="submit" value="delete">
