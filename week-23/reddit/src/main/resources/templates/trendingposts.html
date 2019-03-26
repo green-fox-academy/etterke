@@ -40,12 +40,12 @@
                 <td th:text="${post.score}" scope="col"></td>
                 <td>
                     <form action="/mainlogin" method="get">
-                        <button type="submit">+</button>
+                        <button type="submit" class="btn btn-danger btn-sm">+</button>
                     </form>
                 </td>
                 <td>
                     <form action="/mainlogin" method="get">
-                        <button type="submit">-</button>
+                        <button type="submit" class="btn btn-primary btn-sm">-</button>
                     </form>
                 </td>
                 <td>
@@ -54,7 +54,7 @@
                 <td th:text="${post.user?.name}"></td>
                 <td th:text="${post.createdAt}"></td>
                 <td>
-                    <form action="/mainlogin" method="post">
+                    <form action="/mainlogin" method="get">
                         <button type="submit">Delete</button>
                     </form>
                 </td>

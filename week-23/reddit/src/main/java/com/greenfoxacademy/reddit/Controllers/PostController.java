@@ -27,7 +27,7 @@ public class PostController {
   }
 
   @GetMapping("/{id}")
-  public String renderPostPageById(Model model, @PathVariable(value = "id") long id){
+  public String renderPostPageById(Model model, @PathVariable long id){
     User user = userService.findById(id);
     List<Post> posts = postService.findAllPosts();
     model.addAttribute("user", user);
@@ -36,14 +36,14 @@ public class PostController {
   }
 
   @GetMapping("/{id}/addpost")
-  public String renderAddPostPage(Model model, @PathVariable(value = "id") long id){
+  public String renderAddPostPage(Model model, @PathVariable long id){
     User user = userService.findById(id);
     model.addAttribute("user", user);
     return "addpost";
   }
 
   @PostMapping("/{id}/addpost")
-  public String addPostPage(Model model, @PathVariable(value = "id") long id, @ModelAttribute Post post){
+  public String addPostPage(Model model, @PathVariable long id, @ModelAttribute Post post){
     User user = userService.findById(id);
     model.addAttribute("user", user);
     postService.savePost(post);
@@ -51,7 +51,7 @@ public class PostController {
   }
 
   @PostMapping("/{id}/upvote/{postId}")
-  public String upVotePost(Model model, @PathVariable(value = "id") long id, @PathVariable long postId){
+  public String upVotePost(Model model, @PathVariable long id, @PathVariable long postId){
     User user = userService.findById(id);
     List<Post> posts = postService.findAllPosts();
     model.addAttribute("user", user);
@@ -61,7 +61,7 @@ public class PostController {
   }
 
   @PostMapping("/{id}/downvote/{postId}")
-  public String downVotePost(Model model, @PathVariable(value = "id") long id, @PathVariable long postId){
+  public String downVotePost(Model model, @PathVariable long id, @PathVariable long postId){
     User user = userService.findById(id);
     List<Post> posts = postService.findAllPosts();
     model.addAttribute("user", user);
@@ -71,11 +71,20 @@ public class PostController {
   }
 
   @PostMapping("/{id}/delete/{postId}")
-  public String deletePost(Model model, @PathVariable(value = "id") long id, @PathVariable long postId){
+  public String deletePost(Model model, @PathVariable long id, @PathVariable long postId){
     User user = userService.findById(id);
     model.addAttribute("user", user);
     postService.deletePost(postId);
     return "redirect:/{id}";
+  }
+
+  @GetMapping("/{id}/myposts")
+  public String renderUserPosts(Model model, @PathVariable(value = "id") long id){
+    User user = userService.findById(id);
+    List<Post> postsByUser = postService.findByUserId(id);
+    model.addAttribute("user", user);
+    model.addAttribute("posts", postsByUser);
+    return "postsbyuser";
   }
 
 }

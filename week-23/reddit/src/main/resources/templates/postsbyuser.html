@@ -33,7 +33,7 @@
 </nav>
 <div class="container">
     <div>
-        <h1 th:text="'Hello ' + ${user.name} + ' ! See what the discussion is about'"></h1>
+        <h1 th:text="${user.name} + ' , this is what you have been up to'"></h1>
     </div>
     <div>
         <table class="table table-borderless table-hover">
@@ -41,20 +41,9 @@
             <tr th:each="post : ${posts}">
                 <td th:text="${post.score}" scope="col"></td>
                 <td>
-                    <form th:action="'/' + ${user.id} + '/upvote/' + ${post.id}" method="post">
-                        <button type="submit" class="btn btn-danger btn-sm">+</button>
-                    </form>
-                </td>
-                <td>
-                    <form th:action="'/' + ${user.id} + '/downvote/' + ${post.id}" method="post">
-                        <button type="submit" class="btn btn-primary btn-sm">-</button>
-                    </form>
-                </td>
-                <td>
                     <a th:href="${post.url}" th:text="${post.title}" scope="col"></a>
                 </td>
                 <td th:text="${post.createdAt}"></td>
-                <td th:text="${post.user?.name}"></td>
                 <td>
                     <form th:action="'/' + ${user.id} + '/delete/' + ${post.id}" method="post">
                         <button type="submit">Delete</button>
