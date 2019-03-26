@@ -12,9 +12,9 @@ public class UserController {
   @Autowired
   UserService userService;
 
-  @GetMapping("/")
+  @GetMapping("/mainlogin")
   public String renderMainPage() {
-    return "main";
+    return "mainlogin";
   }
 
   @GetMapping("/login")
@@ -23,12 +23,12 @@ public class UserController {
   }
 
   @PostMapping("/login")
-  public String loginFoxForm(@RequestParam(name = "name") String name) {
+  public String loginForm(@RequestParam(name = "name") String name) {
     if(!userService.checkIfUserExistsByName(name)){
       return "register";
     } else {
       User user = userService.findByName(name);
-      return "redirect:/trendingposts/" + user.getId();
+      return "redirect:/" + user.getId();
     }
 
   }
@@ -44,7 +44,7 @@ public class UserController {
       return "login";
     } else {
       userService.saveUser(user);
-      return "redirect:/trendingposts/" + user.getId();
+      return "redirect:/" + user.getId();
     }
   }
 

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/trendingposts")
 public class PostController {
 
   @Autowired
@@ -20,7 +19,7 @@ public class PostController {
   @Autowired
   PostService postService;
 
-  @GetMapping()
+  @GetMapping("/")
   public String renderPostPage(Model model){
     List<Post> posts = postService.findAllPosts();
     model.addAttribute("posts", posts);
@@ -30,31 +29,53 @@ public class PostController {
   @GetMapping("/{id}")
   public String renderPostPageById(Model model, @PathVariable(value = "id") long id){
     User user = userService.findById(id);
+    List<Post> posts = postService.findAllPosts();
     model.addAttribute("user", user);
-    return "trendingposts";
+    model.addAttribute("posts", posts);
+    return "trendingpostsbyuserid";
   }
 
-  @GetMapping("/addpost")
-  public String renderAddPostPage(){
+  @GetMapping("/{id}/addpost")
+  public String renderAddPostPage(Model model, @PathVariable(value = "id") long id){
+    User user = userService.findById(id);
+    model.addAttribute("user", user);
     return "addpost";
   }
 
-  @PostMapping("/addpost")
-  public String addPostPage(@ModelAttribute Post post){
+  @PostMapping("/{id}/addpost")
+  public String addPostPage(Model model, @PathVariable(value = "id") long id, @ModelAttribute Post post){
+    User user = userService.findById(id);
+    model.addAttribute("user", user);
     postService.savePost(post);
-    return "redirect:/trendingposts";
+    return "redirect:/{id}";
   }
 
-  @PostMapping("/upvote/{id}")
-  public String upVotePost(@PathVariable long id){
-    postService.upVotePost(id);
-    return "redirect:/trendingposts";
+  @PostMapping("/{id}/upvote/{postId}")
+  public String upVotePost(Model model, @PathVariable(value = "id") long id, @PathVariable long postId){
+    User user = userService.findById(id);
+    List<Post> posts = postService.findAllPosts();
+    model.addAttribute("user", user);
+    model.addAttribute("posts", posts);
+    postService.upVotePost(postId);
+    return "redirect:/{id}";
   }
 
-  @PostMapping("/downvote/{id}")
-  public String downVotePost(@PathVariable long id){
-    postService.downVotePost(id);
-    return "redirect:/trendingposts";
+  @PostMapping("/{id}/downvote/{postId}")
+  public String downVotePost(Model model, @PathVariable(value = "id") long id, @PathVariable long postId){
+    User user = userService.findById(id);
+    List<Post> posts = postService.findAllPosts();
+    model.addAttribute("user", user);
+    model.addAttribute("posts", posts);
+    postService.downVotePost(postId);
+    return "redirect:/{id}";
+  }
+
+  @PostMapping("/{id}/delete/{postId}")
+  public String deletePost(Model model, @PathVariable(value = "id") long id, @PathVariable long postId){
+    User user = userService.findById(id);
+    model.addAttribute("user", user);
+    postService.deletePost(postId);
+    return "redirect:/{id}";
   }
 
 }

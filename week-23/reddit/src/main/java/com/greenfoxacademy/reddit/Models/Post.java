@@ -2,6 +2,7 @@ package com.greenfoxacademy.reddit.Models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Post {
@@ -12,7 +13,7 @@ public class Post {
   private String title;
   private String url;
   private int score;
-  private LocalDate createdAt =
+  private LocalDate createdAt = LocalDate.now();
   @ManyToOne
   private User user;
 
@@ -49,5 +50,21 @@ public class Post {
 
   public void setScore(int score) {
     this.score = score;
+  }
+
+  public LocalDate getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(LocalDate createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
   }
 }

@@ -15,9 +15,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div>
-            <a href="/">Main Page</a>
-            <a href="/trendingposts">Trending Posts</a>
-            <a href="/trendingposts/addpost">New Post</a>
+            <a href="/">Trending Posts</a>
+            <a th:href="'/' + ${user.id} + '/addpost'">New Post</a>
             <a href="/login">Log In</a>
             <a href="/register">Register</a>
         </div>
@@ -25,9 +24,12 @@
 </nav>
 <div class="container">
     <div>
-        <form action="/trendingposts/addpost" method="post" class="form-group">
+        <form th:action="'/' + ${user.id} + '/addpost'" method="post" class="form-group">
             <div>
                 <h1>Submit a new post</h1>
+            </div>
+            <div>
+                <input type="hidden" th:value="${user.id}" name="user"/>
             </div>
             <div>
                 <input type="text" name="title" class="form-control" placeholder="Post title" required/>
