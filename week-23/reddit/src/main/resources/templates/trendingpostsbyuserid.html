@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Trending Posts</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" href="/css/stylesheet.css"/>
@@ -14,50 +15,61 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div>
-            <a href="/">Trending Posts</a>
-            <a th:href="'/' + ${user.id} + '/addpost'">New Post</a>
-            <a href="/login">Log In</a>
-            <a href="/register">Register</a>
-        </div>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="'/' + ${user.id} + '/addpost'">New Post</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/login">Log In</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Log out</a>
+            </li>
+        </ul>
     </div>
 </nav>
-<div>
-    <a th:href="'/' + ${user.id} + '/addpost'">Submit a new post</a>
+<div class="container">
+    <div>
+        <a th:href="'/' + ${user.id} + '/addpost'">Submit a new post</a>
+    </div>
+    <h1>
+        Trending posts
+    </h1>
+    <div>
+        <table class="table table-borderless table-hover">
+            <tbody>
+            <tr th:each="post : ${posts}">
+                <td th:text="${post.score}" scope="col"></td>
+                <td>
+                    <form th:action="'/' + ${user.id} + '/upvote/' + ${post.id}" method="post">
+                        <button type="submit">+</button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="'/' + ${user.id} + '/downvote/' + ${post.id}" method="post">
+                        <button type="submit">-</button>
+                    </form>
+                </td>
+                <td>
+                    <a th:href="${post.url}" th:text="${post.title}" scope="col"></a>
+                </td>
+                <td th:text="${post.createdAt}"></td>
+                <td th:text="${post.user?.name}"></td>
+                <td>
+                    <form th:action="'/' + ${user.id} + '/delete/' + ${post.id}" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </div>
-<h1>
-    Trending posts
-</h1>
-<div>
-    <table class="table table-borderless table-hover">
-        <tbody>
-        <tr th:each="post : ${posts}">
-            <td th:text="${post.score}" scope="col"></td>
-            <td>
-                <form th:action="'/' + ${user.id} + '/upvote/' + ${post.id}" method="post">
-                    <button type="submit">+</button>
-                </form>
-            </td>
-            <td>
-                <form th:action="'/' + ${user.id} + '/downvote/' + ${post.id}" method="post">
-                    <button type="submit">-</button>
-                </form>
-            </td>
-            <td>
-                <a th:href="${post.url}" th:text="${post.title}" scope="col"></a>
-            </td>
-            <td th:text="${post.createdAt}"></td>
-            <td>
-                <form th:action="'/' + ${user.id} + '/delete/' + ${post.id}" method="post">
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
