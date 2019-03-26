@@ -1,6 +1,7 @@
 package com.greenfoxacademy.reddit.Models;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 public class Post {
@@ -11,6 +12,7 @@ public class Post {
   private String title;
   private String url;
   private int score;
+  private LocalDate createdAt =
   @ManyToOne
   private User user;
 

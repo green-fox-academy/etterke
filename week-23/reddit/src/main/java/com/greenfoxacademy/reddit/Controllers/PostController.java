@@ -45,5 +45,16 @@ public class PostController {
     return "redirect:/trendingposts";
   }
 
+  @PostMapping("/upvote/{id}")
+  public String upVotePost(@PathVariable long id){
+    postService.upVotePost(id);
+    return "redirect:/trendingposts";
+  }
+
+  @PostMapping("/downvote/{id}")
+  public String downVotePost(@PathVariable long id){
+    postService.downVotePost(id);
+    return "redirect:/trendingposts";
+  }
 
 }

@@ -34,8 +34,16 @@
         <tbody>
         <tr th:each="post : ${posts}">
             <td th:text="${post.score}" scope="col"></td>
-            <td scope="col">+</td>
-            <td scope="col">-</td>
+            <td>
+                <form th:action="'/trendingposts/upvote/' + ${post.id}" method="post">
+                    <button type="submit">+</button>
+                </form>
+            </td>
+            <td>
+                <form th:action="'/trendingposts/downvote/' + ${post.id}" method="post">
+                    <button type="submit">-</button>
+                </form>
+            </td>
             <td>
                 <a th:href="${post.url}" th:text="${post.title}" scope="col"></a>
             </td>
