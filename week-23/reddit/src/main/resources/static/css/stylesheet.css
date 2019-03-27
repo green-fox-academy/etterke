@@ -1,0 +1,22 @@
+body {
+
+    background-image: url('/images/reddit_kazetta_2.jpg');
+    font-family: 'Ubuntu Mono', monospace;
+    text-align: center;
+    text-shadow: 2px 2px orange;
+}
+
+table {
+
+    background: ghostwhite;
+    text-shadow: none;
+}
+
+.main-page .container {
+
+    background: ghostwhite;
+    width: 50%;
+    padding: 30px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}

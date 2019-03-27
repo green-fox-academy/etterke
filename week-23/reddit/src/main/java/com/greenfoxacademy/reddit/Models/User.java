@@ -11,9 +11,9 @@ public class User {
   private long id;
   private String name;
   private String password;
-  @OneToMany
-  @JoinColumn(name = "user_id")
-  private List<Post> posts;
+//  @OneToMany
+//  @JoinColumn(name = "user_id")
+//  private List<Post> posts;
 
   public User() {
   }
@@ -42,11 +42,11 @@ public class User {
     this.password = password;
   }
 
-  public List<Post> getPosts() {
-    return posts;
-  }
-
-  public void setPosts(List<Post> posts) {
-    this.posts = posts;
-  }
+//  public List<Post> getPosts() {
+//    return posts;
+//  }
+//
+//  public void setPosts(List<Post> posts) {
+//    this.posts = posts;
+//  }
 }
