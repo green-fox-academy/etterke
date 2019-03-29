@@ -21,4 +21,8 @@ public class OctocatController {
     return "mainpage";
   }
 
+  @GetMapping("/register")
+  public String renderRegistrationPage(){
+    return "registration";
+  }
 }
