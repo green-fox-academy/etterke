@@ -3,12 +3,11 @@ package com.greenfoxacademy.octocatclub.Services;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class ImageService {
 
-  private List<String> images;
+  private ArrayList<String> images;
 
   public ImageService() {
     this.images = new ArrayList<>();
@@ -22,7 +21,11 @@ public class ImageService {
     images.add("/images/murakamicat.png");
   }
 
-  public List<String> getImages() {
+  public ArrayList<String> getImages() {
     return images;
+  }
+
+  public void setImages(ArrayList<String> images) {
+    this.images = images;
   }
 }

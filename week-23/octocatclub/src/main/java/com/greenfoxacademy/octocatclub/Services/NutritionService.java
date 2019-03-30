@@ -13,11 +13,15 @@ public class NutritionService {
 
   public NutritionService() {
     this.foods = new ArrayList<>();
+    foods.add("hummus");
+    foods.add("pizza");
+    foods.add("chicken tikka massala");
+    foods.add("salad");
     this.drinks = new ArrayList<>();
-  }
-
-  public void add(NutritionService nutrition){
-    nutrition.add(nutrition);
+    drinks.add("tea");
+    drinks.add("coke");
+    drinks.add("mango lassi");
+    drinks.add("water");
   }
 
   public List<String> getFoods() {
@@ -36,4 +40,4 @@ public class NutritionService {
     this.drinks = drinks;
   }
 }
-}
+

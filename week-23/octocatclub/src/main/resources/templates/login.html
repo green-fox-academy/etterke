@@ -32,26 +32,19 @@
 </nav>
 <div class="container">
     <div>
-        <h2>Please provide a name ...</h2>
+        <h2>Sign in</h2>
     </div>
     <div>
-            <form action="/register" method="post" th:object="${octocat}" class="form-group">
+        <form action="/login" method="post" class="form-group">
+            <div>
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" class="form-control" required/>
-                <h2>... and a picture to associate with your Octocat!</h2>
-                <div th:each="image : ${images}" class="btn btn-secondary">
-                    <input type="radio" th:field="*{selectedImage}" th:value="${image}"/>
-                    <img th:src="${image}" style="height: auto; width: 200px"/>
-                </div>
-                <div>
-                    <input type="submit" value="register" class="btn btn-warning"/>
-                </div>
-            </form>
+            </div>
+            <div>
+                <input type="submit" value="login" name="submit" class="btn btn-warning"/>
+            </div>
+        </form>
     </div>
-</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </div>
 </body>
 </html>

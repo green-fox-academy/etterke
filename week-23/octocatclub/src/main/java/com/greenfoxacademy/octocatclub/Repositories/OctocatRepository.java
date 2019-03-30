@@ -6,4 +6,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OctocatRepository extends CrudRepository<Octocat, Long> {
+
+  boolean existsByNameEquals(String name);
+
+  Octocat findOctocatByName(String name);
+
+  Octocat findOctocatByOctocatId(long id);
+
 }

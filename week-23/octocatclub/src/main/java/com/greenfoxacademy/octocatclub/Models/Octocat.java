@@ -10,9 +10,9 @@ public class Octocat {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long octocatId;
   private String name;
-  private String imageURL;
-  private String food;
-  private String drink;
+  private String selectedImage;
+  private String selectedFood;
+  private String selectedDrink;
   @OneToMany
   @JoinColumn(name = "octocat_id")
   private List<Trick> tricks;
@@ -36,28 +36,28 @@ public class Octocat {
     this.name = name;
   }
 
-  public String getImageURL() {
-    return imageURL;
+  public String getSelectedImage() {
+    return selectedImage;
   }
 
-  public void setImageURL(String imageURL) {
-    this.imageURL = imageURL;
+  public void setSelectedImage(String selectedImage) {
+    this.selectedImage = selectedImage;
   }
 
-  public String getFood() {
-    return food;
+  public String getSelectedFood() {
+    return selectedFood;
   }
 
-  public void setFood(String food) {
-    this.food = food;
+  public void setSelectedFood(String selectedFood) {
+    this.selectedFood = selectedFood;
   }
 
-  public String getDrink() {
-    return drink;
+  public String getSelectedDrink() {
+    return selectedDrink;
   }
 
-  public void setDrink(String drink) {
-    this.drink = drink;
+  public void setSelectedDrink(String selectedDrink) {
+    this.selectedDrink = selectedDrink;
   }
 
   public List<Trick> getTricks() {
