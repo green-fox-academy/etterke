@@ -2,12 +2,17 @@ package com.greenfoxacademy.frontend.Controllers;
 
 import com.greenfoxacademy.frontend.Models.*;
 import com.greenfoxacademy.frontend.Models.Error;
+import com.greenfoxacademy.frontend.Services.RestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ExerciseRestController {
+
+  @Autowired
+  RestService restService;
 
   @RequestMapping("/doubling")
   public Object renderDoublingPage(@RequestParam(required = false) Integer input) {
@@ -57,5 +62,23 @@ public class ExerciseRestController {
     } else {
       return new Error("Please provide a number!");
     }
+  }
+
+  @PostMapping("/arrays")
+  public ResponseEntity<Object> renderArraysPage(@RequestBody(required = false) Arrays arrays){
+
+    if(arrays != null){
+      if(arrays.getWhat().equals("addUp")){
+        Result result  = new Result(restService.addUp(arrays.getNumbers()));
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+      } else if(arrays.getWhat().equals("multiply")){
+        Result result = new Result(restService.multiply(arrays.getNumbers()));
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+      } else if(arrays.getWhat().equals("doubleNumbers")){
+        ArrayResult arrayResult = new ArrayResult(restService.doubleNumbers(arrays.getNumbers()));
+        return ResponseEntity.status(HttpStatus.OK).body(arrayResult);
+      }
+    }
+    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Error("Please provide what to do with the numbers!"));
   }
 }
