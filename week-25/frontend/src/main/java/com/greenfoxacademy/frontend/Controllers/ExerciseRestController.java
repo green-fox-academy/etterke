@@ -1,14 +1,18 @@
 package com.greenfoxacademy.frontend.Controllers;
 
+import com.greenfoxacademy.frontend.Models.AppendA;
 import com.greenfoxacademy.frontend.Models.Doubling;
 import com.greenfoxacademy.frontend.Models.Error;
 import com.greenfoxacademy.frontend.Models.Greeter;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class DoublingController {
+public class ExerciseRestController {
 
   @RequestMapping("/doubling")
   public Object renderDoublingPage(@RequestParam(required = false) Integer input) {
@@ -32,5 +36,14 @@ public class DoublingController {
     } else {
       return new Greeter("Oh, hi there " + name + ", " + "my dear " + title + "!");
     }
+  }
+
+  @RequestMapping("/appenda/{appendable}")
+  public ResponseEntity<?> renderAppendAPage(@PathVariable(required = false) String appendable) {
+
+    if(appendable == null){
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Error("404"));
+    }
+    return ResponseEntity.status(HttpStatus.OK).body(new AppendA("kuty"));
   }
 }
