@@ -14,8 +14,12 @@ table {
 
 .main-page .container {
 
+    width: 60%;
+}
+
+.container {
+
     background: ghostwhite;
-    width: 50%;
     padding: 30px;
     margin-top: 60px;
     margin-bottom: 60px;

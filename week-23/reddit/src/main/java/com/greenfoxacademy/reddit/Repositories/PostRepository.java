@@ -10,4 +10,8 @@ import java.util.ArrayList;
 public interface PostRepository extends CrudRepository<Post, Long> {
 
   ArrayList<Post> findByUser_Id(long id);
+
+  ArrayList<Post> findAllByOrderByScoreDesc();
+
+  ArrayList<Post> findTop10ByOrderByScoreDesc();
 }

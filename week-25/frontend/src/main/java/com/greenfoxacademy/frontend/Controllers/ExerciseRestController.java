@@ -81,4 +81,13 @@ public class ExerciseRestController {
     }
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Error("Please provide what to do with the numbers!"));
   }
+
+  @PostMapping("/sith")
+  public ResponseEntity<Object> renderSithTextReversePage(@RequestBody(required = false) Sith sith){
+    if(sith != null){
+      SithReverse sithReverse = new SithReverse(restService.reverseSith(sith.getText()));
+      return ResponseEntity.status(HttpStatus.OK).body(sithReverse);
+    }
+    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Error("Feed me some text you have to, padawan young you are. Hmmm."));
+  }
 }

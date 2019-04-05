@@ -2,14 +2,13 @@ package com.greenfoxacademy.reddit.Models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 public class Post {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
+  private long postId;
   private String title;
   private String url;
   private int score;
@@ -20,12 +19,12 @@ public class Post {
   public Post() {
   }
 
-  public long getId() {
-    return id;
+  public long getPostId() {
+    return postId;
   }
 
-  public void setId(long id) {
-    this.id = id;
+  public void setPostId(long postId) {
+    this.postId = postId;
   }
 
   public String getTitle() {

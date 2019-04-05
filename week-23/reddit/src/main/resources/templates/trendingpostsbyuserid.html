@@ -37,18 +37,22 @@
     <div>
         <h1 th:text="'Hello ' + ${user.name} + ' ! See what the discussion is about'"></h1>
     </div>
+    <div th:if="${posts.isEmpty()}" th:text="'There are no posts to show, go and add some!'"></div>
     <div>
+        <a class="btn btn-warning" th:href="'/' + ${user.id} + '/addpost'" role="button">Submit a new post</a>
+    </div>
+    <div th:unless="${posts.isEmpty()}" >
         <table class="table table-borderless table-hover">
             <tbody>
             <tr th:each="post : ${posts}">
                 <td th:text="${post.score}" scope="col"></td>
                 <td>
-                    <form th:action="'/' + ${user.id} + '/upvote/' + ${post.id}" method="post">
+                    <form th:action="'/' + ${user.id} + '/upvote/' + ${post.postId}" method="post">
                         <button type="submit" class="btn btn-danger btn-sm">+</button>
                     </form>
                 </td>
                 <td>
-                    <form th:action="'/' + ${user.id} + '/downvote/' + ${post.id}" method="post">
+                    <form th:action="'/' + ${user.id} + '/downvote/' + ${post.PostId}" method="post">
                         <button type="submit" class="btn btn-primary btn-sm">-</button>
                     </form>
                 </td>

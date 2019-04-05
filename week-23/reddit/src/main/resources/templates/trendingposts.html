@@ -38,7 +38,8 @@
             Trending posts
         </h1>
     </div>
-    <div>
+    <div th:if="${posts.isEmpty()}" th:text="'There are no posts to show! Choose Main in the menu and register or log in to stir things up!'"></div>
+    <div th:unless="${posts.isEmpty()}" >
         <table class="table table-borderless table-hover">
             <tbody>
             <tr th:each="post : ${posts}">

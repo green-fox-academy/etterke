@@ -39,7 +39,8 @@ public class UserController {
   }
 
   @PostMapping("/register")
-  public String registerUserForm(@RequestParam(name = "name") String name, @ModelAttribute User user) {
+  public String registerUserForm(@RequestParam(name = "name") String name,
+                                 @ModelAttribute User user) {
     if(userService.checkIfUserExistsByName(name)) {
       return "login";
     } else {

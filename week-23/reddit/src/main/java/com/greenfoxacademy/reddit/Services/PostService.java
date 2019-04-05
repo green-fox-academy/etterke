@@ -15,9 +15,21 @@ public class PostService {
   PostRepository postRepository;
 
 
-  public List<Post> findAllPosts(){
+  public List<Post> findAllPosts() {
     List<Post> posts = new ArrayList<>();
     postRepository.findAll().forEach(posts::add);
+    return posts;
+  }
+
+  public List<Post> showPostsByDescOrder() {
+    List<Post> posts = new ArrayList<>();
+    postRepository.findAllByOrderByScoreDesc().forEach(posts::add);
+    return posts;
+  }
+
+  public List<Post> showTop10ByDescOrder() {
+    List<Post> posts = new ArrayList<>();
+    postRepository.findTop10ByOrderByScoreDesc().forEach(posts::add);
     return posts;
   }
 
