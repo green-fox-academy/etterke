@@ -23,8 +23,13 @@ public class Link {
     this.id = id;
     this.url = url;
     this.alias = alias;
-    this.secretCode = secretCode;
+    this.secretCode = generateSecretCode();
     this.hitCount = hitCount;
+  }
+
+  public int generateSecretCode(){
+    int secretCode = (int) (Math.random() * 9000 + 1000);
+    return secretCode;
   }
 
   public long getId() {
