@@ -1,5 +1,7 @@
 package com.greenfoxacademy.urlshortening.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,23 +15,22 @@ public class Link {
   private long id;
   private String url;
   private String alias;
+  @JsonIgnore
   private int secretCode;
   private int hitCount;
 
   public Link() {
   }
 
-  public Link(long id, String url, String alias, int secretCode, int hitCount) {
-    this.id = id;
+  public Link(String url, String alias) {
     this.url = url;
     this.alias = alias;
-    this.secretCode = generateSecretCode();
-    this.hitCount = hitCount;
+    this.secretCode = secretCode;
+    this.hitCount = 0;
   }
 
-  public int generateSecretCode(){
-    int secretCode = (int) (Math.random() * 9000 + 1000);
-    return secretCode;
+  public void incrementHitCount() {
+    hitCount++;
   }
 
   public long getId() {

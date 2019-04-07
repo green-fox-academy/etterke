@@ -37,14 +37,23 @@
     <div>
         <h2>Copy a URL and save it with an alias using the form below</h2>
     </div>
-        <form action="/save-link" method="post" class="form-group">
+    <div>
+        <form action="/save-link" method="post" class="form-group" th:object="${link}">
+            <div th:if="${error}" th:text="${error}" style="color:red"></div>
+            <div th:unless="${error}" th:text="'Your URL is aliased to ' + ${link.alias} + ' and your secret code is ' + ${link.secretCode}"></div>
             <div>
                 <label for="url">URL</label>
-                <input type="url" id="url" name="url" class="form-control" required/>
+                <input type="url" id="url" th:field="*{url}" class="form-control" required/>
             </div>
             <div>
                 <label for="alias">Alias</label>
-                <input type="text" id="alias" name="alias" class="form-control" required/>
+                <input type="text" id="alias" th:field="*{alias}" class="form-control" required/>
+            </div>
+            <div>
+                <input type="hidden" th:value="*{secretCode}" name="secretCode"/>
+            </div>
+            <div>
+                <input type="hidden" th:value="*{hitCount}" name="hitCount"/>
             </div>
             <div>
                 <input type="submit" value="Submit" class="btn btn-warning"/>
