@@ -1,7 +1,9 @@
 package com.greenfoxacademy.urlshortening.Controllers;
 
+import com.greenfoxacademy.urlshortening.Models.Error;
 import com.greenfoxacademy.urlshortening.Models.Link;
 import com.greenfoxacademy.urlshortening.Models.LinkEntries;
+import com.greenfoxacademy.urlshortening.Models.SecretCode;
 import com.greenfoxacademy.urlshortening.Services.LinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +30,17 @@ public class RESTController {
 
   @DeleteMapping("/api/links/{id}")
   public ResponseEntity<?> deleteByIdAndSecretCode(@PathVariable long id,
-                                                   @RequestBody int secretCode) {
-
+                                                   @RequestBody(required = false) SecretCode secretCode) {
+    if(secretCode != null){
+      Link link = linkService.findLinkById(id);
+      if(link.getSecretCode() == secretCode.getSecretCode()){
+        linkService.deleteLink(link);
+        return ResponseEntity.status(204).body(new Error("No probs, link deleted"));
+      } else {
+        return ResponseEntity.status(403).body(new Error("Secret codes do not match"));
+      }
+    } else {
+      return ResponseEntity.status(404).body(new Error("No secret code provided"));
+    }
   }
 }

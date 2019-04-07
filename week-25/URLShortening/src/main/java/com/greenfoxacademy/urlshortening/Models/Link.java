@@ -12,7 +12,7 @@ public class Link {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
+  private long linkId;
   private String url;
   private String alias;
   @JsonIgnore
@@ -33,12 +33,12 @@ public class Link {
     hitCount++;
   }
 
-  public long getId() {
-    return id;
+  public long getLinkId() {
+    return linkId;
   }
 
-  public void setId(long id) {
-    this.id = id;
+  public void setLinkId(long id) {
+    this.linkId = linkId;
   }
 
   public String getUrl() {

@@ -4,9 +4,6 @@ public class Error {
 
   private String errorMessage;
 
-  public Error() {
-  }
-
   public Error(String errorMessage) {
     this.errorMessage = errorMessage;
   }

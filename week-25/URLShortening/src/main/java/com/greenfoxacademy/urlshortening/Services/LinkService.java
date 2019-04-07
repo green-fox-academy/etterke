@@ -23,11 +23,19 @@ public class LinkService {
     linkRepository.save(link);
   }
 
+  public void deleteLink(Link link) {
+    linkRepository.delete(link);
+  }
+
   public Link findLinkByAlias(String alias) {
     return linkRepository.findLinkByAlias(alias);
   }
 
-  public int generateSecretCode(){
+  public Link findLinkById(long id) {
+    return linkRepository.findLinkByLinkId(id);
+  }
+
+  public int generateSecretCode() {
     return 1000 + new Random().nextInt(9000);
   }
 
@@ -37,7 +45,7 @@ public class LinkService {
     saveLink(link);
   }
 
-  public ArrayList<Link> listAllLinks(){
+  public ArrayList<Link> listAllLinks() {
     ArrayList<Link> links = new ArrayList<>();
     linkRepository.findAll().forEach(links::add);
     return links;
