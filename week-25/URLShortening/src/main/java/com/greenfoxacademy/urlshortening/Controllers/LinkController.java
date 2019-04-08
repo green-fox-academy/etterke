@@ -3,7 +3,6 @@ package com.greenfoxacademy.urlshortening.Controllers;
 import com.greenfoxacademy.urlshortening.Models.Link;
 import com.greenfoxacademy.urlshortening.Services.LinkService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.server.Http2;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,12 +34,12 @@ public class LinkController {
   }
 
   @GetMapping("/a/{alias}")
-  public String renderLink(@PathVariable String alias) {
+  public Object renderLink(@PathVariable String alias) {
     Link link = linkService.findLinkByAlias(alias);
     if(linkService.exists(alias)){
       linkService.incrementHitCount(alias);
       return "redirect:" + link.getUrl();
     }
-    return "404";
+    return ResponseEntity.status(404).body("pffff");
   }
 }

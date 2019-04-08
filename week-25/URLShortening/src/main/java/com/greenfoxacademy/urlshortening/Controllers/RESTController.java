@@ -17,7 +17,7 @@ public class RESTController {
   @Autowired
   LinkService linkService;
 
-  @PostMapping("/api/links")
+  @GetMapping("/api/links")
   public ResponseEntity<Object> listLinks() {
     List<Link> links = linkService.listAllLinks();
 

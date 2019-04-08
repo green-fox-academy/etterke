@@ -25,7 +25,7 @@ public class Link {
   public Link(String url, String alias) {
     this.url = url;
     this.alias = alias;
-    this.secretCode = secretCode;
+    this.secretCode = 0;
     this.hitCount = 0;
   }
 
