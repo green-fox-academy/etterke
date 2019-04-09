@@ -1,6 +1,5 @@
 package com.greenfoxacademy.octocatclub.Controllers;
 
-import com.greenfoxacademy.octocatclub.Models.Octocat;
 import com.greenfoxacademy.octocatclub.Models.Trick;
 import com.greenfoxacademy.octocatclub.Services.OctocatService;
 import com.greenfoxacademy.octocatclub.Services.TrickService;
@@ -11,21 +10,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@Controller
-public class InformationController {
+import java.util.List;
 
-  @Autowired
-  OctocatService octocatService;
+@Controller
+public class TrickController {
+
   @Autowired
   TrickService trickService;
+  @Autowired
+  OctocatService octocatService;
 
-  @GetMapping("/information/{id}")
-  public String renderInformationPage(Model model,
-                                      @PathVariable long id,
-                                      @ModelAttribute Trick trick){
-    Octocat octocat = octocatService.findOctocatById(id);
-    model.addAttribute("octocat", octocat);
-    model.addAttribute("numberOfTricks", trickService.findByOctocatId(id).size());
-    return "information";
+  @GetMapping("/information/{id}/trickcenter")
+  public String renderTrickCenter(Model model,
+                                  @PathVariable long id) {
+    List<Trick> tricks = trickService.findAllTricks();
+    model.addAttribute("octocat", octocatService.findOctocatById(id));
+    model.addAttribute("tricks", tricks);
+    return "trickcenter";
   }
 }

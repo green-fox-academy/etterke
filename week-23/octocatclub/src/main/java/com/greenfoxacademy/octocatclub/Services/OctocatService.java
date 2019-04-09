@@ -1,9 +1,13 @@
 package com.greenfoxacademy.octocatclub.Services;
 
 import com.greenfoxacademy.octocatclub.Models.Octocat;
+import com.greenfoxacademy.octocatclub.Models.Trick;
 import com.greenfoxacademy.octocatclub.Repositories.OctocatRepository;
+import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 
 @Service
 public class OctocatService {
