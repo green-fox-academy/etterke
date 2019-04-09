@@ -1,15 +1,12 @@
-package com.greenfoxacademy.octocatclub.Services;
-
-import org.springframework.stereotype.Service;
+package com.greenfoxacademy.octocatclub.Models;
 
 import java.util.ArrayList;
 
-@Service
-public class ImageService {
+public class ImageList {
 
   private ArrayList<String> images;
 
-  public ImageService() {
+  public ImageList() {
     this.images = new ArrayList<>();
     images.add("/images/github_HP.png");
     images.add("/images/github_minion.png");

@@ -1,7 +1,7 @@
 package com.greenfoxacademy.octocatclub.Controllers;
 
+import com.greenfoxacademy.octocatclub.Models.ImageList;
 import com.greenfoxacademy.octocatclub.Models.Octocat;
-import com.greenfoxacademy.octocatclub.Services.ImageService;
 import com.greenfoxacademy.octocatclub.Services.OctocatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,15 +11,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-
 @Controller
 public class OctocatController {
 
   @Autowired
   OctocatService octocatService;
-  @Autowired
-  ImageService imageService;
 
   @GetMapping("/")
   public String redirectToMainPage(){
@@ -32,18 +28,17 @@ public class OctocatController {
   }
 
   @GetMapping("/register")
-  public String renderRegistrationForm(Model model){
-    Octocat octocat = new Octocat();
-    ArrayList<String> images = imageService.getImages();
+  public String renderRegistrationForm(Model model,
+                                       @ModelAttribute Octocat octocat,
+                                       @ModelAttribute ImageList imageList){
     model.addAttribute("octocat", octocat);
-    model.addAttribute("images", images);
+    model.addAttribute("images", imageList.getImages());
     return "registration";
   }
 
   @PostMapping("/register")
-  public String RegistrationForm(@RequestParam (name = "name") String name,
-                                 @ModelAttribute Octocat octocat){
-    if(octocatService.checkIfOctocatExistsByName(name)){
+  public String RegistrationForm(@ModelAttribute Octocat octocat){
+    if(octocatService.checkIfOctocatExistsByName(octocat.getName())){
       return "redirect:/login";
     } else {
       octocatService.saveOctocat(octocat);
