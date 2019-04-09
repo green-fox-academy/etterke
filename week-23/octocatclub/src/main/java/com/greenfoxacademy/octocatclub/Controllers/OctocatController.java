@@ -62,7 +62,8 @@ public class OctocatController {
                           Model model) {
 
     if(!octocatService.checkIfOctocatExistsByName(name)){
-      return "redirect:/register";
+      model.addAttribute("notYetRegistered", "Please register first!");
+      return "login";
     } else {
       Octocat octocat = octocatService.findOctocatByName(name);
       return "redirect:/information/" + octocat.getOctocatId();
