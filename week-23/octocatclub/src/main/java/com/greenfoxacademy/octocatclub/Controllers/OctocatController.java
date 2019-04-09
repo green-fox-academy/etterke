@@ -37,9 +37,15 @@ public class OctocatController {
   }
 
   @PostMapping("/register")
-  public String RegistrationForm(@ModelAttribute Octocat octocat){
+  public String RegistrationForm(Model model,
+                                 @ModelAttribute Octocat octocat,
+                                 @ModelAttribute ImageList imageList){
     if(octocatService.checkIfOctocatExistsByName(octocat.getName())){
-      return "redirect:/login";
+      octocat = octocatService.findOctocatByName(octocat.getName());
+      model.addAttribute("isRegistered", "You are already registered, please choose Log In");
+      model.addAttribute("octocat", octocat);
+      model.addAttribute("images", imageList.getImages());
+      return "registration";
     } else {
       octocatService.saveOctocat(octocat);
       return "redirect:/information/" + octocat.getOctocatId();
