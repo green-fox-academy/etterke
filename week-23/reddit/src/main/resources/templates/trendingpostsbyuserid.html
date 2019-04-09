@@ -37,9 +37,10 @@
     <div>
         <h1 th:text="'Hello ' + ${user.name} + ' ! See what the discussion is about'"></h1>
     </div>
-    <div th:if="${posts.isEmpty()}" th:text="'There are no posts to show, go and add some!'"></div>
-    <div>
-        <a class="btn btn-warning" th:href="'/' + ${user.id} + '/addpost'" role="button">Submit a new post</a>
+    <div th:if="${posts.isEmpty()}" th:text="'There are no posts to show, go and add some!'">
+        <div>
+            <a class="btn btn-warning" th:href="'/' + ${user.id} + '/addpost'" role="button">Submit a new post</a>
+        </div>
     </div>
     <div th:unless="${posts.isEmpty()}" >
         <table class="table table-borderless table-hover">

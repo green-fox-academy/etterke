@@ -45,15 +45,13 @@ public class PostController {
   }
 
   @PostMapping("/{id}/addpost")
-  public String addPostPage(@PathVariable long id,
-                            @ModelAttribute Post post){
+  public String addPostPage(@ModelAttribute Post post){
     postService.savePost(post);
     return "redirect:/{id}";
   }
 
   @PostMapping("/{id}/upvote/{postId}")
   public String upVotePost(Model model,
-                           @PathVariable long id,
                            @PathVariable long postId){
     List<Post> posts = postService.showPostsByDescOrder();
     model.addAttribute("posts", posts);
@@ -63,7 +61,6 @@ public class PostController {
 
   @PostMapping("/{id}/downvote/{postId}")
   public String downVotePost(Model model,
-                             @PathVariable long id,
                              @PathVariable long postId){
     List<Post> posts = postService.showPostsByDescOrder();
     model.addAttribute("posts", posts);
@@ -72,9 +69,7 @@ public class PostController {
   }
 
   @PostMapping("/{id}/delete/{postId}")
-  public String deletePost(Model model,
-                           @PathVariable long id,
-                           @PathVariable long postId){
+  public String deletePost(@PathVariable long postId){
     postService.deletePost(postId);
     return "redirect:/{id}";
   }

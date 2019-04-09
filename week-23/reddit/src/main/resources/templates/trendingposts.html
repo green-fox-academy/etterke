@@ -39,7 +39,7 @@
         </h1>
     </div>
     <div th:if="${posts.isEmpty()}" th:text="'There are no posts to show! Choose Main in the menu and register or log in to stir things up!'"></div>
-    <div th:unless="${posts.isEmpty()}" >
+    <div th:unless="${posts.isEmpty()}">
         <table class="table table-borderless table-hover">
             <tbody>
             <tr th:each="post : ${posts}">
@@ -59,11 +59,6 @@
                 </td>
                 <td th:text="${post.user?.name}"></td>
                 <td th:text="${post.createdAt}"></td>
-                <td>
-                    <form action="/mainlogin" method="get">
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
             </tr>
             </tbody>
         </table>

@@ -30,7 +30,6 @@ public class UserController {
       User user = userService.findByName(name);
       return "redirect:/" + user.getId();
     }
-
   }
 
   @GetMapping("/register")
@@ -39,9 +38,8 @@ public class UserController {
   }
 
   @PostMapping("/register")
-  public String registerUserForm(@RequestParam(name = "name") String name,
-                                 @ModelAttribute User user) {
-    if(userService.checkIfUserExistsByName(name)) {
+  public String registerUserForm(@ModelAttribute User user) {
+    if(userService.checkIfUserExistsByName(user.getName())) {
       return "login";
     } else {
       userService.saveUser(user);
