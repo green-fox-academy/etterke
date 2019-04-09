@@ -9,5 +9,9 @@ import java.util.ArrayList;
 @Repository
 public interface TrickRepository extends CrudRepository<Trick, Long> {
 
-  ArrayList findAllByOctocatOctocatId(long id);
+  ArrayList findAllByOctocatOctocatId (long id);
+
+  boolean existsTrickByName (String name);
+
+  Trick findTrickByName (String name);
 }

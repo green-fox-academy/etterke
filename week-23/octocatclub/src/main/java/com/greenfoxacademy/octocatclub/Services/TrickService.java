@@ -27,4 +27,12 @@ public class TrickService {
   public List<Trick> findByOctocatId(long id) {
     return trickRepository.findAllByOctocatOctocatId(id);
   }
+
+  public Trick findByName(String name) {
+    return trickRepository.findTrickByName(name);
+  }
+
+  public boolean doesTrickExists(String name) {
+    return trickRepository.existsTrickByName(name);
+  }
 }

@@ -50,6 +50,9 @@
             <tr th:each="trick : ${tricks}">
                 <td th:text="${trick.name}"></td>
                 <td th:text="${trick.octocat?.name}"></td>
+                <td>
+
+                </td>
             </tr>
             </tbody>
         </table>
@@ -65,11 +68,13 @@
                 <input type="hidden" th:value="${octocat.octocatId}" name="user"/>
             </div>
             <div>
-                <input type="text" name="name" class="form-control" placeholder="name the trick"/>
+                <input type="text" th:field="${trick.name}" class="form-control" placeholder="name the trick"/>
             </div>
             <div>
                 <input type="submit" value="Add to tricks" class="btn btn-warning"/>
             </div>
+            <div th:text="${trickExists}"></div>
+            <div th:text="${trickIsSaved}"></div>
         </form>
     </div>
 </div>

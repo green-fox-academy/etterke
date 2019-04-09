@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 @Controller
 public class InformationController {
 
@@ -24,8 +26,10 @@ public class InformationController {
                                       @PathVariable long id,
                                       @ModelAttribute Trick trick){
     Octocat octocat = octocatService.findOctocatById(id);
+    List<Trick> tricks = trickService.findByOctocatId(id);
     model.addAttribute("octocat", octocat);
     model.addAttribute("numberOfTricks", trickService.findByOctocatId(id).size());
+    model.addAttribute("tricks", tricks);
     return "information";
   }
 }
