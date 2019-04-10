@@ -1,5 +1,6 @@
 package com.greenfoxacademy.octocatclub.Controllers;
 
+import com.greenfoxacademy.octocatclub.Models.Octocat;
 import com.greenfoxacademy.octocatclub.Models.Trick;
 import com.greenfoxacademy.octocatclub.Services.OctocatService;
 import com.greenfoxacademy.octocatclub.Services.TrickService;
@@ -49,5 +50,12 @@ public class TrickController {
       model.addAttribute("tricks", tricks);
       return "trickcenter";
     }
+  }
+
+  @PostMapping("/information/{id}/trickcenter/assign")
+  public String assignTricktoOctocat(@ModelAttribute Trick trick) {
+
+    trickService.saveTrick(trick);
+    return "redirect:/information/{id}/trickcenter";
   }
 }

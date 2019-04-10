@@ -28,7 +28,7 @@ public class InformationController {
     Octocat octocat = octocatService.findOctocatById(id);
     List<Trick> tricks = trickService.findByOctocatId(id);
     model.addAttribute("octocat", octocat);
-    model.addAttribute("numberOfTricks", trickService.findByOctocatId(id).size());
+    model.addAttribute("numberOfTricks", tricks.size());
     model.addAttribute("tricks", tricks);
     return "information";
   }

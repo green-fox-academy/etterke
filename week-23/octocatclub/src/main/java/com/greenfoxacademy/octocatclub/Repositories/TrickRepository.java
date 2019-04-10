@@ -14,4 +14,5 @@ public interface TrickRepository extends CrudRepository<Trick, Long> {
   boolean existsTrickByName (String name);
 
   Trick findTrickByName (String name);
+
 }

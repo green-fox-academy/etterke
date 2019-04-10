@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class OctocatService {
@@ -17,6 +18,12 @@ public class OctocatService {
 
   public void saveOctocat(Octocat octocat){
     octocatRepository.save(octocat);
+  }
+
+  public List<Octocat> findAllOctocats() {
+    List<Octocat> octocats = new ArrayList<>();
+    octocatRepository.findAll().forEach(octocats::add);
+    return octocats;
   }
 
   public Octocat findOctocatByName(String name){

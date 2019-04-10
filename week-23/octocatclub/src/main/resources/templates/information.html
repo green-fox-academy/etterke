@@ -54,10 +54,10 @@
     </div>
     <div>
         <ul>
-            <span th:if="${numberOfTricks == 0}">You don't know any tricks, yet. Go and learn some!</span>
-            <span th:unless="${numberOfTricks == 0}">
-                <li th:each="trick : ${tricks}" th:text="${trick}"></li>
-            </span>
+            <div th:if="${numberOfTricks == 0}">You don't know any tricks, yet. Go and learn some!</div>
+            <div th:unless="${numberOfTricks == 0}" th:each="trick : ${tricks}">
+                <li th:text="${trick.name}"></li>
+            </div>
         </ul>
     </div>
 </div>

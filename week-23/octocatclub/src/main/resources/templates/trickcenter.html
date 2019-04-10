@@ -51,7 +51,12 @@
                 <td th:text="${trick.name}"></td>
                 <td th:text="${trick.octocat?.name}"></td>
                 <td>
-
+                    <form th:action="'/information/' + ${octocat.octocatId} + '/trickcenter/assign'" method="post">
+                        <input type="hidden" th:value="${octocat.octocatId}" name="octocat"/>
+                        <input type="hidden" th:value="${trick.trickId}" name="trickId"/>
+                        <input type="hidden" th:value="${trick.name}" name="name"/>
+                        <input type="submit" value="Pick me" class="btn btn-warning"/>
+                    </form>
                 </td>
             </tr>
             </tbody>
